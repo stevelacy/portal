@@ -20,3 +20,5 @@ node_modules
 
 public/
 config/*key*
+server/config/development.json
+server/config/production.json
