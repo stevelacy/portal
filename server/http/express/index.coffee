@@ -36,4 +36,8 @@ app.use (err, req, res, next) ->
   log.error err.stack
   res.send 500, 'Something broke!'
 
+app.get '*'  , (req, res, next) ->
+  log.info route: req.originalUrl, method: req.method, 'route called'
+  next()
+
 module.exports = app
