@@ -60,5 +60,8 @@
     "nib": "^1.0.3",
     "vinyl-buffer": "0.0.0",
     "vinyl-source-stream": "^0.1.1"
+  },
+  "scripts": {
+    "start": "node start"
   }
 }
