@@ -1,5 +1,5 @@
 setup = require '../setup'
-app = require '../../start'
+app = require '../../'
 config = require '../../config'
 db = require '../../db'
 
