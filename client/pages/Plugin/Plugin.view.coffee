@@ -13,9 +13,8 @@ module.exports = ->
         NavbarView
           color: 'light'
         div className: 'page',
-          div className: 'item',
-            'Plugin:'
+          div className: 'info',
             div className: 'name', @model.name
             div className: 'description', @model.description
-            console.log @model.html
-            iframe src: "#{fission.config.url}#{@model.html}"
+          iframe
+            src: "#{fission.config.url}#{@model.html}"
