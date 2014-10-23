@@ -1,0 +1,13 @@
+{
+  "name": "some-other-plugin",
+  "description": "Other Plugin for PORTAL",
+  "dependencies": {
+    "lodash": "*"
+  },
+  "portal": {
+    "main": "plugin.coffee",
+    "script": "simple.js",
+    "html": "plugin.html"
+
+  }
+}
