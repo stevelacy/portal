@@ -9,13 +9,18 @@ twitter = require './passport/twitter'
 google = require './passport/google'
 #facebook = require './passport/facebook'
 
-# server our APIs
+# send the plugins
+plugins = require './express/plugins'
+
+# serve our APIs
 apis = require './apis'
 
 # catch-all serve index.html
 spa = require './express/spa'
 
-httpServer = http.createServer app
+sockets = require './sockets'
+
+httpServer = require './httpServer'
 
 
 module.exports = httpServer

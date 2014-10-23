@@ -21,7 +21,7 @@ gif = require "gulp-if"
 sourcemaps = require "gulp-sourcemaps"
 
 
-
+nodemon = require 'nodemon'
 nib = require "nib"
 autoprefixer = require "autoprefixer-stylus"
 autowatch = require "gulp-autowatch"
@@ -37,8 +37,29 @@ paths =
   stylus: "./client/**/*.styl"
   jade: "./client/**/*.jade"
 
-gulp.task "server", (cb) ->
-  require "./start"
+gulp.task 'server', (cb) ->
+  # total hack to make nodemon + livereload
+  # work sanely
+  idxPath = './public/index.html'
+  reloader = reload()
+  nodemon
+    script: './server/index.coffee'
+    watch: ['./server']
+    ext: 'js json coffee'
+    ignore: './server/test'
+
+  nodemon.once 'start', cb
+  nodemon.on 'start', ->
+    console.log 'Server has started'
+    setTimeout ->
+      reloader.write path: idxPath
+    , 750
+  nodemon.on 'quit', ->
+    console.log 'Server has quit'
+  nodemon.on 'restart', (files) ->
+    console.log 'Server restarted due to:', files
+
+  return
 
 # javascript
 gulp.task "coffee", ->

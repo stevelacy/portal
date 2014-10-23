@@ -3,9 +3,11 @@ config = require '../../config'
 {join} = require 'path'
 idxFile = join config.pubdir, 'index.html'
 
-app.get "/serverConfig.js", (req, res) ->
-  src = "window._serverConfig = {"
-  src += "name: '#{config.name}'"
+app.get "/config.js", (req, res) ->
+  src = "window._config = {"
+  src += "  name: '#{config.name}',"
+  src += "  title: '#{config.title}',"
+  src += "  url: '#{config.url}'"
   src += "};"
 
   res.set "Content-Type", "application/javascript"

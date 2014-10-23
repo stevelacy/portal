@@ -1,5 +1,6 @@
 Fission = require 'fission'
 fission = new Fission()
+global.fission = fission
 fission.config = window._config
 
 fission.socket = io()

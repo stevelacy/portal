@@ -18,16 +18,15 @@ router.route '/login',
   title: fission.config.title
 
 
-router.route '/plugins/:id',
-  view: PluginView
-  el: 'content'
-  title: fission.config.title
-
 router.route '/plugins',
   view: PluginsView
   el: 'content'
   title: fission.config.title
 
+router.route '/plugins/:id',
+  view: PluginView
+  el: 'content'
+  title: fission.config.title
 
 
 module.exports = router

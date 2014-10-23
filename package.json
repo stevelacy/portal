@@ -16,11 +16,13 @@
     "errorhandler": "^1.2.2",
     "express": "^4.8.2",
     "express-session": "^1.7.5",
+    "fission": "0.0.4",
     "goosestrap": "0.0.4",
     "gulp": "^3.8.7",
     "i": "^0.3.2",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
+    "map-stream": "^0.1.0",
     "method-override": "^2.3.0",
     "mongodb": "^1.4.8",
     "mongoose": "^3.8.15",
@@ -36,7 +38,9 @@
     "response-time": "^2.2.0",
     "serve-static": "^1.7.0",
     "sessionstore": "^1.0.5",
-    "toobusy": "^0.2.4"
+    "socket.io": "^1.1.0",
+    "toobusy": "^0.2.4",
+    "vinyl-fs": "^0.3.10"
   },
   "devDependencies": {
     "autoprefixer-stylus": "^0.2.0",
@@ -59,7 +63,8 @@
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^3.0.0",
     "mocha": "^2.0.0",
-    "nib": "^1.0.3",
+    "nib": "^1.0.4",
+    "nodemon": "^1.2.1",
     "should": "^4.1.0",
     "supertest": "^0.14.0",
     "vinyl-buffer": "0.0.0",
@@ -67,6 +72,6 @@
   },
   "scripts": {
     "test": "NODE_ENV=testing mocha --recursive --reporter spec --compilers coffee:coffee-script/register ./server/test",
-    "start": "node start"
+    "start": "DEBUG=* node start"
   }
 }
