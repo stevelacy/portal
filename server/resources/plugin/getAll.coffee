@@ -1,6 +1,7 @@
 path = require 'path'
 vinyl = require 'vinyl-fs'
 map = require 'map-stream'
+config = require '../../config'
 db = require '../../db'
 Plugin = db.model 'Plugin'
 
@@ -9,7 +10,7 @@ module.exports = (req, res, next) ->
 
 
   plugins = []
-  vinyl.src [ path.join(__dirname, '../../plugins/**/package.json')]
+  vinyl.src [ path.join(__dirname, "../../../#{config.plugins.path}/**/package.json")]
   .pipe map (file, cb) ->
     try
       json = require file.path

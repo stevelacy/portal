@@ -16,6 +16,14 @@ Plugin = new Schema
   activated:
     type: Boolean
     default: false
+  widget:
+    script:
+      type: String
+    html:
+      type: String
+    activated:
+      type: Boolean
+      default: false
 
 Plugin.set 'toJSON', {getters:true, virtuals:true}
 Plugin.set 'toObject', {getters:true, virtuals:true}

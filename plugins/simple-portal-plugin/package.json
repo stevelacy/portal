@@ -7,6 +7,10 @@
   "portal": {
     "main": "plugin.coffee",
     "script": "simple.js",
-    "html": "plugin.html"
+    "html": "plugin.html",
+    "widget": {
+      "main": "widget.js",
+      "html": "widget.html"
+    }
   }
 }
