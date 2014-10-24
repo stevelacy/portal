@@ -20,21 +20,14 @@ module.exports = (req, res, next) ->
     return res.status(404).end() unless plugin?
 
     if plugin.html?
-      try
-        plugin.html = "/static/plugins/#{plugin.name}/#{plugin.html}"
-      catch e
-        plugin.html = 'ERROR: plugin template corrupt'
+      plugin.html = "/static/#{plugin.name}/#{plugin.html}"
     else
       plugin.html = 'ERROR: no template found'
 
     if plugin.script?
-      try
-        plugin.script =  "/static/plugins/#{plugin.name}/#{plugin.script}"
-      catch e
-        plugin.script = 'ERROR: plugin script corrupt'
+      plugin.script =  "/static/#{plugin.name}/#{plugin.script}"
     else
       plugin.script = 'ERROR: no script found'
-
 
 
     plugin = plugin.toJSON()
