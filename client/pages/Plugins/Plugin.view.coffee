@@ -18,7 +18,7 @@ View = fission.modelView
 
 
     div className: 'item',
-      a {href: "/plugins/#{@model.name}"},
+      a {href: "/plugins/#{@model._id}"},
         div className: 'title', @model.name
       Button
 
