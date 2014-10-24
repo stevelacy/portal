@@ -1,3 +1,4 @@
+superagent = require 'superagent'
 fission = require '../../app'
 Plugin = require '../../models/Plugin'
 
@@ -6,13 +7,13 @@ Plugin = require '../../models/Plugin'
 View = fission.modelView
   model: Plugin
   activate: ->
-    console.log 'activating'
+    @model.set activated: !@model.activated
+    @model.save()
   render: ->
 
     Button = button
       className: if @model.activated then 'activate' else 'activate blue'
-      onClick: @activate
-    ,
+      onClick: @activate,
       if @model.activated then 'UNACTIVATE' else 'ACTIVATE'
 
 

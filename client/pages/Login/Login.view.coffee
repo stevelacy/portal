@@ -14,7 +14,7 @@ module.exports = ->
           color: 'light'
         div className: 'page',
           #div className: 'spacer-100'
-          div className: 'login',
+          div className: 'box',
 
             div className: 'logo white', 'Login'
             button

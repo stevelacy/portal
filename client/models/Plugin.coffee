@@ -8,3 +8,4 @@ module.exports = fission.model
     _id: 'string'
     html: 'string'
   url: '/v1/plugins'
+  idAttribute: '_id'

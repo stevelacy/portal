@@ -1,36 +1,44 @@
+@import '../mixins/fonts'
 button, .button
-  border none
-  background whiteDarkShade
-  padding 10px
-  outline none
-  font-size 16px
-
+  font-rodus()
+  transition: all .5s
+  border: none
+  background: whiteDarkShade
+  padding: 10px
+  outline: none
+  font-size: 16px
+  cursor: pointer
+  margin: 5px
   // Sizes
   &.large
-    padding 20px
-    font-size 22px
+    padding: 20px
+    font-size: 22px
   &.wide
-    padding-left 40px
-    padding-right 40px
+    padding-left: 40px
+    padding-right: 40px
 
   // Actions
   &:hover
-    background whiteDarkShade
-    text-decoration none
+    background: whiteDarkShade
+    text-decoration: none
 
   // Colors
   &.green
-    background green
-    color white
+    background: green
+    color: white
     &:hover
-      background darken(green, 10)
+      background: darken(green, 10)
   &.red
-    background red
-    color white
+    background: red
+    color: white
     &:hover
-      background darken(red, 10)
+      background: darken(red, 10)
   &.blue
-    background blue
-    color white
+    background: blue
+    color: white
     &:hover
-      background darken(blue, 10)
+      background: darken(blue, 10)
+  &.light
+    background: rgba(250, 250, 250, .3)
+    &:hover
+      background: rgba(250, 250, 250, .5)
