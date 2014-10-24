@@ -1,7 +1,71 @@
-'use strict';
+$(document).ready(function(){
 
-var widget = function(num){
-  return console.log(num);
+
+var fission = parent.fission;
+
+var widget = function(){
+  fission.socket.emit('test', {data:'test'});
+  fission.socket.on('test', function(data){
+    console.log(data);
+  });
 };
 
-widget(100);
+widget();
+
+
+
+
+
+var cpu, mem;
+
+$('.cpu').easyPieChart({
+  animate: 2000,
+  easing: 'easeOutBounce',
+  barColor: 'green',
+  lineWidth: 10,
+  lineCap: 'butt',
+  trackColor: '#363636',
+  rotate: 180,
+  scaleColor: false,
+  onStep: function(from, to, percent) {
+    return $(this.el).find('.value').text(Math.round(percent)).css({
+      color: 'green'
+    });
+  }
+});
+
+$('.mem').easyPieChart({
+  animate: 2000,
+  easing: 'easeOutBounce',
+  barColor: 'red',
+  lineWidth: 10,
+  lineCap: 'butt',
+  trackColor: '#363636',
+  rotate: 180,
+  scaleColor: false,
+  onStep: function(from, to, percent) {
+    return $(this.el).find('.value').text(Math.round(percent)).css({
+      color: 'red'
+    });
+  }
+});
+
+cpu = window.chart = $('.cpu').data('easyPieChart');
+
+mem = window.chart = $('.mem').data('easyPieChart');
+
+fission.socket.on('graphs', function(data){
+  console.log(data);
+  cpu.update(Number(data.process.cpu));
+  mem.update(Number(data.process.mem));
+});
+
+
+
+
+
+
+
+
+
+});

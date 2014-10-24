@@ -1,0 +1,9 @@
+.widget {
+  height: 100%;
+  background: #efefef;
+  overflow: hidden;
+}
+
+.cpu, .mem {
+  display: inline-block;
+}

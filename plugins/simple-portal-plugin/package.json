@@ -2,11 +2,13 @@
   "name": "simple-portal-plugin",
   "description": "Simple Plugin for PORTAL",
   "dependencies": {
-    "lodash": "*"
+    "lodash": "*",
+    "usage": "^0.4.13"
   },
   "portal": {
     "main": "plugin.coffee",
     "script": "simple.js",
+    "style": "plugin.css",
     "html": "plugin.html",
     "widget": {
       "main": "widget.js",
