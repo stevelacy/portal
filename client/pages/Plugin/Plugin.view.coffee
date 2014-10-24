@@ -17,4 +17,6 @@ module.exports = ->
             div className: 'name', @model.name
             div className: 'description', @model.description
           iframe
-            src: "#{fission.config.url}#{@model.html}"
+            src: "#{fission.config.url}/static/#{@model.name}/#{@model.html}"
+          console.log @model
+          #src: "#{fission.config.url}#{@model.html}"

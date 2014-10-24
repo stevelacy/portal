@@ -19,6 +19,7 @@ View = fission.modelView
           onClick: @delete,
             'X'
         iframe
-          src: "#{fission.config.url}/static/widgets/#{@model.name}/#{@model.widget.html}"
+          src: "#{fission.config.url}/static/#{@model.name}/#{@model.widget.html}"
+          scrolling: 'no'
 
 module.exports = View

@@ -5,6 +5,7 @@ module.exports = fission.model
     name: 'string'
     main: 'string'
     html: 'string'
+    style: 'string'
     widget:
       activated: 'boolean'
     _id: 'string'

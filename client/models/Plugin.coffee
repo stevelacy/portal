@@ -7,5 +7,6 @@ module.exports = fission.model
     activated: 'boolean'
     _id: 'string'
     html: 'string'
+    style: 'string'
   url: '/v1/plugins'
   idAttribute: '_id'
