@@ -12,13 +12,6 @@ View = fission.modelView
   mounted: ->
     @setState activated: @model.widget.activated
   toggle: ->
-    data =
-      name: @model.name
-      widget:
-        activated: !@state.activated
-
-    #superagent.put "#{fission.config.url}/v1/widgets/#{@model.name}", data, (err, res) ->
-    #  console.log res
     @model.set
       widget:
         activated: !@state.activated

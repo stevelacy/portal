@@ -53,6 +53,8 @@ $('.mem').easyPieChart({
 cpu = window.chart = $('.cpu').data('easyPieChart');
 
 mem = window.chart = $('.mem').data('easyPieChart');
+cpu.update(100);
+mem.update(100);
 
 fission.socket.on('graphs', function(data){
   console.log(data);
