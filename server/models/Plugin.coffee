@@ -1,6 +1,6 @@
 {Schema} = require 'mongoose'
 
-Plugin = new Schema
+Model = new Schema
 
   name:
     type: String
@@ -25,11 +25,13 @@ Plugin = new Schema
     activated:
       type: Boolean
       default: false
+    size:
+      type: String
   id:
     type: String
     select: false
 
-Plugin.set 'toJSON', {getters:true, virtuals:true}
-Plugin.set 'toObject', {getters:true, virtuals:true}
+Model.set 'toJSON', {getters:true, virtuals:true}
+Model.set 'toObject', {getters:true, virtuals:true}
 
-module.exports = Plugin
+module.exports = Model

@@ -12,7 +12,7 @@ hidden = ->
     write: false
   return perms
 
-User = new Schema
+Model = new Schema
 
   name:
     type: String
@@ -88,27 +88,27 @@ User = new Schema
     default: Date.now
     authorize: noWrite
 
-User.set 'toJSON', {getters:true, virtuals:true}
-User.set 'toObject', {getters:true, virtuals:true}
+Model.set 'toJSON', {getters:true, virtuals:true}
+Model.set 'toObject', {getters:true, virtuals:true}
 
-User.methods.authorize = (req) ->
+Model.methods.authorize = (req) ->
   perms =
     read: true
     write: (req.user.username is @username)
     delete: false
   return perms
 
-User.statics.authorize = ->
+Model.statics.authorize = ->
   perms =
     read: true
     write: false
   return perms
 
-User.statics.me = (req, cb) ->
+Model.statics.me = (req, cb) ->
   cb null, req.user
 
-User.statics.byHandle = ({query}, cb) ->
+Model.statics.byHandle = ({query}, cb) ->
   return cb new Error "Missing username parameter" unless typeof query.username is 'string' and query.username.length > 0
   @findOne {username:query.username}, cb
 
-module.exports = User
+module.exports = Model
