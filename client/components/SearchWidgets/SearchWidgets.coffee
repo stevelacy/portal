@@ -10,6 +10,8 @@ View = fission.collectionView
   render: ->
     return div className: 'search-widgets',
       div className: 'title', 'Widgets'
+      if !@items[0]
+        div className: 'title', 'Please activate a plugin'
       @items
 
 module.exports = View

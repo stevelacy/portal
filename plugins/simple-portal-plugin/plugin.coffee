@@ -1,4 +1,4 @@
-spawn = require('child_process').spawn
+{spawn} = require 'child_process'
 
 systemStats = require './systemStats'
 
@@ -6,14 +6,15 @@ systemStats = require './systemStats'
 
 module.exports = (socket) ->
 
-  socket.emit 'test', test: 'that'
-  socket.on 'test', (data) ->
+  socket.emit 'test', test: 'widget'
 
+  systemStats (err, stats) ->
+    socket.emit 'graphs',
+      stats
+    console.log stats
+  setInterval ->
     systemStats (err, stats) ->
       socket.emit 'graphs',
         stats
-    setInterval ->
-      systemStats (err, stats) ->
-        socket.emit 'graphs',
-          stats
-    , 3000
+      console.log stats
+  , 3000

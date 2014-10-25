@@ -17,9 +17,15 @@ View = fission.modelView
       widget:
         activated: !@state.activated
 
-    superagent.put "#{fission.config.url}/v1/widgets/#{@model.name}", data, (err, res) ->
-      console.log res
+    #superagent.put "#{fission.config.url}/v1/widgets/#{@model.name}", data, (err, res) ->
+    #  console.log res
+    @model.set
+      widget:
+        activated: !@state.activated
+    @model.save()
     @setState activated: !@state.activated
+
+    console.log @model
   render: ->
     return div className: 'item',
       div className: 'name',
@@ -27,7 +33,6 @@ View = fission.modelView
       button
         className: 'button add blue'
         onClick: @toggle,
-          console.log @model
           if @state.activated
             'REMOVE'
           else

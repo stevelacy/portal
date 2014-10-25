@@ -7,8 +7,5 @@
 
   "debug": true,
 
-  "apiPrefix": "/v1",
-  "plugins": {
-    "path": "plugins/"
-  }
+  "apiPrefix": "/v1"
 }

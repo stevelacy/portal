@@ -12,7 +12,8 @@ Plugin = new Schema
     type: String
   path:
     type: String
-
+  main:
+    type: String
   activated:
     type: Boolean
     default: false
@@ -24,6 +25,9 @@ Plugin = new Schema
     activated:
       type: Boolean
       default: false
+  id:
+    type: String
+    select: false
 
 Plugin.set 'toJSON', {getters:true, virtuals:true}
 Plugin.set 'toObject', {getters:true, virtuals:true}
