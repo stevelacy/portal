@@ -17,9 +17,10 @@ module.exports = (req, res, next) ->
   q.exec (err, plugin) ->
     return next err if err?
 
+    console.log plugin, 'plugin'
     plugin.set req.body
 
     plugin.save (err, plugin) ->
-      console.log  plugin
+      console.log err, plugin, 'put'
       return next err if err?
       res.send plugin.toJSON()

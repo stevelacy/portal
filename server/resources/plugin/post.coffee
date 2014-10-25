@@ -7,7 +7,7 @@ module.exports = (req, res, next) ->
   return res.status(403).end() unless req.isAuthenticated()
   return next new Error 'Invalid body' unless typeof req.body is 'object'
 
-  console.log req.body
+  console.log req.body, 'post'
   return res.status(200).send "test"
   ###
   item = new Plugin req.body

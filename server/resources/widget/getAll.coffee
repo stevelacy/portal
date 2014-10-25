@@ -6,7 +6,7 @@ module.exports = (req, res, next) ->
   return res.status(403).end() unless req.isAuthenticated()
 
   # return all
-  q = Plugin.find widget: $ne: null
+  q = Plugin.find activated: true, widget: $ne: null
   q.limit 25
 
   q.exec (err, widgets) ->
