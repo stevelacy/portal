@@ -1,3 +1,4 @@
+path = require 'path'
 express = require 'express'
 compress = require 'compression'
 methodOverride = require 'method-override'
@@ -23,7 +24,12 @@ app.use compress()
 app.use methodOverride()
 app.use bodyParser.json strict: true
 app.use cookieParser config.cookieSecret
-app.use staticFiles config.pubdir
+#app.use staticFiles config.pubdir
+
+console.log  config.plugins.path
+
+app.use express.static config.pubdir
+app.use '/static/', express.static config.plugins.path
 
 app.use session
   store: sessionStore
