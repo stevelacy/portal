@@ -1,6 +1,6 @@
 {
-  "name": "simple-portal-plugin",
-  "description": "Simple Plugin for PORTAL",
+  "name": "portal-stats",
+  "description": "Stats Plugin for PORTAL",
   "dependencies": {
     "lodash": "*",
     "usage": "^0.4.13"
@@ -13,7 +13,7 @@
     "widget": {
       "main": "widget.js",
       "html": "widget.html",
-      "size": "small"
+      "size": "medium"
     }
   }
 }
