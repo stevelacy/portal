@@ -1,8 +1,11 @@
 fission = require '../../app'
-NavbarView = require '../../components/NavBar/NavBar'
 ModalView = require '../../components/Modal/Modal'
+NavbarView = require '../../components/NavBar/NavBar'
+InfoBarView = require '../../components/InfoBar/InfoBar'
+SideBarView = require '../../components/SideBar/SideBar'
 SearchWidgets = require '../../components/SearchWidgets/SearchWidgets'
 Widgets = require './Widgets.view'
+
 {div, button} = fission.React.DOM
 
 module.exports = ->
@@ -27,16 +30,16 @@ module.exports = ->
         NavbarView
           color: 'light'
         div className: 'page',
-          if @state.openModal
-            ModalView
-              onClose: @toggleWidget
-              content: SearchWidgets
-          button
-            className: 'button add widget light'
-            onClick: @toggleWidget,
-              'ADD WIDGET'
-          if @state.widgets
-            Widgets()
-
-
-
+          SideBarView()
+          div className: 'content',
+            InfoBarView()
+            if @state.openModal
+              ModalView
+                onClose: @toggleWidget
+                content: SearchWidgets
+            button
+              className: 'button add widget light'
+              onClick: @toggleWidget,
+                'ADD WIDGET'
+            if @state.widgets
+              Widgets()

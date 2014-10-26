@@ -1,5 +1,6 @@
 fission = require '../../app'
 NavbarView = require '../../components/NavBar/NavBar'
+SideBarView = require '../../components/SideBar/SideBar'
 Plugin = require '../../models/Plugin'
 
 pluginView = require './Plugin.view'
@@ -15,8 +16,9 @@ module.exports = ->
         NavbarView
           color: 'light'
         div className: 'page',
-          div className: 'title',
-            'Plugins'
-          div className: 'items',
-            @items
-
+          SideBarView()
+          div className: 'content',
+            div className: 'title',
+              'Plugins'
+            div className: 'items',
+              @items

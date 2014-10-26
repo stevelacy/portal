@@ -12,12 +12,22 @@ View = fission.modelView
       success: (data) ->
         @model.destroy()
   render: ->
+    iframeSize = =>
+      if @model.widget.size == 'small'
+        return '25%'
+      if @model.widget.size == 'medium'
+        return '50%'
+      return '100%'
+
     return div className: 'widget',
-      div className: 'frame',
+      div
+        style: width: iframeSize()
+        className: 'frame',
         button
-          className: 'button delete light'
+          className: 'button close light'
           onClick: @delete,
             'X'
+        console.log @model
         iframe
           src: "#{fission.config.url}/static/#{@model.name}/#{@model.widget.html}"
           scrolling: 'no'

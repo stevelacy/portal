@@ -11,7 +11,7 @@ module.exports = ->
     render: ->
       div className: 'main login',
         NavbarView
-          color: 'light'
+          color: 'transparent'
         div className: 'page',
           #div className: 'spacer-100'
           div className: 'box',
