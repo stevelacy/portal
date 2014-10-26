@@ -14,9 +14,5 @@ config.logFile = logFile
 config.port = process.env.PORT or 5000
 config.database = config.database or process.env.MONGO_URL
 config.pubdir = join __dirname, '../../public'
-config.plugins =
-  path: join __dirname, '../../plugins'
-
-
 
 module.exports = config
