@@ -9,7 +9,7 @@ View = fission.view
   render: ->
     return div className: 'modal',
       button
-        className: 'close'
+        className: 'button light close'
         onClick: @close
         , 'X'
       @props.content()

@@ -3,7 +3,7 @@ fission = require "../../app"
 {img} = fission.React.DOM
 
 View = fission.view
-  getDefaultProps: -> {size: 20}
+  getDefaultProps: -> size: 20
   render: ->
 
     pic = img

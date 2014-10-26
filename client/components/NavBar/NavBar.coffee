@@ -13,15 +13,14 @@ View = fission.view
       className: "navbar #{@props?.color} #{@props?.background}"
 
     div style,
-      a {href: '/'},
-        div {className: 'logo'}, fission.config.name
-      div {className: 'right'},
+      a href: '/',
+        div className: 'logo', fission.config.name
+      div className: 'right',
         if window._user?
-          div {className: 'user'},
-            a {href: "/#{window._user._id}", className: 'image'},
+          div className: 'user',
+            a href: "/#{window._user._id}", className: 'image',
               ProfilePicView
                 image: window._user.image
-                size: 50
-
+                size: 40
 
 module.exports = View
