@@ -9,32 +9,19 @@ Plugin = db.model 'Plugin'
 
 setPlugin = (json, cb) ->
   Plugin.findOne name: json.name, (err, plugin) ->
-    if plugin
-      return cb null, plugin
-    else
-
-      data = json.portal
-      data.name = json.name
-      data.description = json.description
-      plug = new Plugin data
-
-      plug.save (err, doc) ->
-        return cb err if err?
-        return cb null, doc
-    ###
-
-    cb err if err?
     data = json.portal
     data.name = json.name
     data.description = json.description
-    data.activated = plugin?.activated or false
-    if plugin?
-      Plugin.update _id: plugin._id, data, (err, doc) ->
+    if plugin
+      plugin.set data
+      plugin.save (err, doc) ->
         return cb err if err?
-        doc.id = undefined
         return cb null, doc
     else
-    ###
+      plug = new Plugin data
+      plug.save (err, doc) ->
+        return cb err if err?
+        return cb null, doc
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.isAuthenticated()
@@ -48,7 +35,9 @@ module.exports = (req, res, next) ->
         pth = "#{pth}/package.json"
         if fs.existsSync pth
           try
-            json = require pth
+            #json = require pth
+            file = fs.readFileSync pth
+            json = JSON.parse file
             setPlugin json, (err, data) ->
               log.error err if err?
               return cb err if err?
