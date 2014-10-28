@@ -24,11 +24,8 @@ app.use compress()
 app.use methodOverride()
 app.use bodyParser.json strict: true
 app.use cookieParser config.cookieSecret
-#app.use staticFiles config.pubdir
-
-console.log  config.plugins.path
-
 app.use express.static config.pubdir
+
 app.use '/static/', express.static config.plugins.path
 
 app.use session
@@ -42,7 +39,7 @@ app.use (err, req, res, next) ->
   log.error err.stack
   res.send 500, 'Something broke!'
 
-app.get '*'  , (req, res, next) ->
+app.get '*' , (req, res, next) ->
   log.info route: req.originalUrl, method: req.method, 'route called'
   next()
 
