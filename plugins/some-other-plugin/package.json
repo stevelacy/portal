@@ -10,7 +10,8 @@
     "html": "plugin.html",
     "widget": {
       "main": "widget.js",
-      "html": "widget.html"
+      "html": "widget.html",
+      "size": "large"
     }
   }
 }
