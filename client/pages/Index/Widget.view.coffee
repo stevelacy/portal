@@ -19,10 +19,10 @@ View = fission.modelView
         return '50%'
       return '100%'
 
-    return div className: 'widget',
-      div
-        style: width: iframeSize()
-        className: 'frame',
+
+    return div
+      className: 'widget',
+      style: width: iframeSize(),
         button
           className: 'button close light'
           onClick: @delete,
