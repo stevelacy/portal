@@ -18,7 +18,5 @@ module.exports = ->
         div className: 'page',
           SideBarView()
           div className: 'content',
-            div className: 'title',
-              'Plugins'
             div className: 'items',
               @items
