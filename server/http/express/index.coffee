@@ -10,7 +10,7 @@ staticFiles = require 'serve-static'
 session = require 'express-session'
 
 config = require '../../config'
-sessionStore = require "./sessionStore"
+sessionStore = require './sessionStore'
 log = require '../../lib/log'
 
 
@@ -36,6 +36,7 @@ app.use session
     maxAge: 31536000000
 
 app.use (err, req, res, next) ->
+  res.header 'Access-Control-Allow-Credentials', 'true'
   log.error err.stack
   res.send 500, 'Something broke!'
 
