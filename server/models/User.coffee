@@ -1,3 +1,4 @@
+bcrypt = require 'bcrypt'
 {Schema} = require 'mongoose'
 
 noWrite = ->
@@ -19,59 +20,22 @@ Model = new Schema
     required: true
     authorize: noWrite
 
-  id:
+  email:
     type: String
     required: true
     index:
       unique: true
     authorize: noWrite
 
-  token:
+  password:
     type: String
     required: true
-    select: true
-    authorize: hidden
-
-  tokenSecret:
-    type: String
-    select: true
-    authorize: hidden
 
   image:
     type: String
     authorize: noWrite
     default: "https://si0.twimg.com/sticky/default_profile_images/default_profile_0_normal.png"
 
-  banner:
-    type: String
-  username:
-    type: String
-    required: true
-    index:
-      unique: true
-    authorize: noWrite
-
-  description:
-    type: String
-    authorize: noWrite
-
-  website:
-    type: String
-    authorize: noWrite
-
-  location:
-    type: String
-    authorize: noWrite
-
-  followers:
-    type: Number
-    default: 0
-    authorize: noWrite
-
-  verified:
-    type: Boolean
-    default: false
-    authorize: noWrite
 
   online:
     type: Boolean
@@ -90,6 +54,24 @@ Model = new Schema
 
 Model.set 'toJSON', {getters:true, virtuals:true}
 Model.set 'toObject', {getters:true, virtuals:true}
+
+
+Model.pre 'save', (next) ->
+  return next() unless @.isModified 'password'
+  bcrypt.genSalt 10, (err, salt) =>
+    return next err if err?
+    bcrypt.hash @password, salt, (err, hash) =>
+      return next err if err?
+      @password = hash
+      next()
+
+
+Model.methods.comparePassword = (password, cb) ->
+  bcrypt.compare password, @password, (err, match) ->
+    return cb err if err?
+    cb null, match
+
+
 
 Model.methods.authorize = (req) ->
   perms =
