@@ -5,9 +5,10 @@ app = require './express'
 
 # handle auth on incoming requests
 auth = require './passport'
-twitter = require './passport/twitter'
-google = require './passport/google'
+#twitter = require './passport/twitter'
+#google = require './passport/google'
 #facebook = require './passport/facebook'
+local = require './passport/local'
 
 # serve our APIs
 apis = require './apis'
