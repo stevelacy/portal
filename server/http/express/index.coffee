@@ -8,6 +8,7 @@ errorHandler = require 'errorhandler'
 bodyParser = require 'body-parser'
 staticFiles = require 'serve-static'
 session = require 'express-session'
+passport = require 'passport'
 
 config = require '../../config'
 sessionStore = require './sessionStore'
@@ -22,7 +23,7 @@ app.use errorHandler()
 app.use responseTime()
 app.use compress()
 app.use methodOverride()
-app.use bodyParser.json strict: true
+app.use bodyParser()
 app.use cookieParser config.cookieSecret
 app.use express.static config.pubdir
 
@@ -35,13 +36,16 @@ app.use session
   cookie:
     maxAge: 31536000000
 
+app.use passport.initialize()
+app.use passport.session()
+
 app.use (err, req, res, next) ->
   res.header 'Access-Control-Allow-Credentials', 'true'
   log.error err.stack
   res.send 500, 'Something broke!'
 
-app.get '*' , (req, res, next) ->
-  log.info route: req.originalUrl, method: req.method, 'route called'
+app.all '*' , (req, res, next) ->
+  log.info route: req.originalUrl, method: req.method
   next()
 
 module.exports = app
