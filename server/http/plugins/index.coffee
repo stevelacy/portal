@@ -12,6 +12,6 @@ module.exports = (socket) ->
         if plugin.main?
           try
             runPlugin = require "#{config.plugins.path}/#{plugin.name}/#{plugin.main}"
-            runPlugin socket
+            runPlugin socket, plugin
           catch e
             log.error e

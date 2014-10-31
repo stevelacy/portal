@@ -39,7 +39,6 @@ strategy = new Strategy
   consumerKey: config.twitter.consumerKey
   consumerSecret: config.twitter.consumerSecret
   callbackURL: config.twitter.callback
-  #callbackURL: 'http://localhost:3000'
 , handleFunction
 
 passport.use strategy
