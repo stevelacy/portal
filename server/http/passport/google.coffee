@@ -51,8 +51,4 @@ app.get '/auth/google/callback', passport.authenticate 'google',
   successRedirect: '/'
   failureRedirect: '/login?failed=true'
 
-app.get '/logout', (req, res) ->
-  req.logout()
-  res.redirect '/'
-
 module.exports = passport

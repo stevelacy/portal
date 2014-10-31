@@ -63,8 +63,4 @@ app.get '/auth/facebook/callback', passport.authenticate 'facebook',
   successRedirect: '/'
   failureRedirect: '/login?failed=true'
 
-app.get '/logout', (req, res) ->
-  req.logout()
-  res.redirect '/'
-
 module.exports = passport
