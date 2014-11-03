@@ -11,6 +11,7 @@ module.exports = ->
       o =
         email: ''
         password: ''
+        status: ''
       return o
 
     updateEmail: (e) ->
@@ -23,8 +24,12 @@ module.exports = ->
       data =
         email: @state.email
         password: @state.password
-      request.post '/login', data, (err, res) ->
-        console.log err, res
+      request.post '/login', data, (err, res) =>
+        if res?.status == 200
+          window.location = '/'
+        else
+          @setState status: 'Incorrect email or password'
+
 
     render: ->
       div className: 'main login',
@@ -53,4 +58,6 @@ module.exports = ->
               style: cursor: 'pointer'
               onClick: @login,
                 'LOGIN'
+            div className: 'status',
+              @state.status
 
