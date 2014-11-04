@@ -31,6 +31,10 @@ Model = new Schema
     type: String
     required: true
 
+  token:
+    type: String
+    authorize: noWrite
+
   image:
     type: String
     authorize: noWrite
