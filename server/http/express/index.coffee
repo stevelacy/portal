@@ -9,11 +9,13 @@ bodyParser = require 'body-parser'
 staticFiles = require 'serve-static'
 session = require 'express-session'
 passport = require 'passport'
+jwt = require 'jwt-simple'
 
 config = require '../../config'
 sessionStore = require './sessionStore'
 log = require '../../lib/log'
 
+jwtAuth = require './jwt'
 
 app = express()
 app.disable 'x-powered-by'
@@ -26,7 +28,7 @@ app.use methodOverride()
 app.use bodyParser()
 app.use cookieParser config.cookieSecret
 app.use express.static config.pubdir
-
+app.set 'jwtTokenSecret', config.jwt.secret
 app.use '/static/', express.static config.plugins.path
 
 app.use session
@@ -44,7 +46,7 @@ app.use (err, req, res, next) ->
   log.error err.stack
   res.send 500, 'Something broke!'
 
-app.all '*' , (req, res, next) ->
+app.all '*' ,[jwtAuth], (req, res, next) ->
   log.info route: req.originalUrl, method: req.method
   next()
 
