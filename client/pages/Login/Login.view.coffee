@@ -26,6 +26,7 @@ module.exports = ->
         password: @state.password
       request.post '/login', data, (err, res) =>
         if res?.status == 200
+          window.localStorage.setItem 'token', res.body.token
           window.location = '/'
         else
           @setState status: 'Incorrect email or password'
