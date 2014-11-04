@@ -60,4 +60,3 @@ module.exports = ->
                 'LOGIN'
             div className: 'status',
               @state.status
-
