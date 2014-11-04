@@ -5,6 +5,8 @@ module.exports =
   name: 'P.O.R.T.A.L'
   title: 'P.O.R.T.A.L'
   url: 'http://node.la'
+  jwt:
+    secret: 'IhoiUHyu6gt5HJHhjhhGfddsESEWsfgHJjhhjFDdsseseRDSTDfgghhjHJljklkjuiuyyUYUtytrRERerererERerererRTGHghj'
   twitter:
     consumerKey: '3N2jsOUin20cNJh9IyDnw'
     consumerSecret: 'kQsFOwFQxODOdhENggeHlzHwjHtogcenzuwRsOGNoFg'

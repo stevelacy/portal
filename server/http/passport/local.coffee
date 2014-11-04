@@ -1,5 +1,6 @@
 mongoose = require 'mongoose'
 passport = require 'passport'
+jwt = require 'jwt-simple'
 LocalStrategy = require('passport-local').Strategy
 
 config = require '../../config'
@@ -14,7 +15,13 @@ handleLogin = (email, password, cb) ->
     user.comparePassword password, (err, match) ->
       return cb err if err?
       return cb null, false, message: 'Invalid password' unless match
-      return cb null, user
+      token = jwt.encode
+        iss: user._id
+      , config.jwt.secret
+      user.set token: token
+      user.save (err, doc) ->
+        return cb err if err?
+        return cb null, doc
 
 strategy = new LocalStrategy handleLogin
 

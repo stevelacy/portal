@@ -28,7 +28,9 @@ app.post '/login', (req, res, next) ->
     req.logIn user, (err) ->
       log.error err if err?
       return res.status(401).json error: 'email or password incorrect' if err?
-      return res.status(200).json status: 'success'
+      return res.status(200).json
+        status: 'success'
+        token: user.token
 
   ) req, res, next
 
