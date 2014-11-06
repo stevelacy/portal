@@ -10,6 +10,7 @@ staticFiles = require 'serve-static'
 session = require 'express-session'
 passport = require 'passport'
 jwt = require 'jwt-simple'
+cors = require 'cors'
 
 config = require '../../config'
 sessionStore = require './sessionStore'
@@ -42,11 +43,13 @@ app.use passport.initialize()
 app.use passport.session()
 
 app.use (err, req, res, next) ->
-  res.header 'Access-Control-Allow-Credentials', 'true'
   log.error err.stack
   res.send 500, 'Something broke!'
 
-app.all '*' ,[jwtAuth], (req, res, next) ->
+app.use cors()
+
+
+app.all '*', [jwtAuth], (req, res, next) ->
   log.info route: req.originalUrl, method: req.method
   next()
 

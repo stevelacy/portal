@@ -21,7 +21,7 @@ gif = require "gulp-if"
 sourcemaps = require "gulp-sourcemaps"
 
 
-nodemon = require 'nodemon'
+nodemon = require 'gulp-nodemon'
 nib = require "nib"
 autoprefixer = require "autoprefixer-stylus"
 autowatch = require "gulp-autowatch"
@@ -47,19 +47,19 @@ gulp.task 'server', (cb) ->
     watch: ['./server']
     ext: 'js json coffee'
     ignore: './server/test'
-
-  nodemon.once 'start', cb
-  nodemon.on 'start', ->
+  .once 'start', cb
+  .on 'start', ->
     console.log 'Server has started'
     setTimeout ->
-      reloader.write path: idxPath
-    , 750
-  nodemon.on 'quit', ->
+      #reloader.write path: idxPath
+      console.log ''
+    , 1000
+  .on 'quit', ->
     console.log 'Server has quit'
-  nodemon.on 'restart', (files) ->
+  .on 'restart', (files) ->
     console.log 'Server restarted due to:', files
 
-  return
+  #return
 
 # javascript
 gulp.task "coffee", ->
