@@ -23,10 +23,13 @@ View = fission.modelView
     return div
       className: 'widget',
       style: width: iframeSize(),
-        button
-          className: 'button close light'
-          onClick: @delete,
-            'X'
+        div
+          className: 'controls',
+          div className: 'name', @model.name
+          button
+            className: 'button close light'
+            onClick: @delete,
+              'X'
         console.log @model
         iframe
           src: "#{fission.config.url}/static/#{@model.name}/#{@model.widget.html}"

@@ -18,6 +18,8 @@ Model = new Schema
     type: Boolean
     default: false
   widget:
+    name:
+      type: String
     script:
       type: String
     html:

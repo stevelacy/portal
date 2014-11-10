@@ -11,6 +11,7 @@
     "style": "plugin.css",
     "html": "plugin.html",
     "widget": {
+      "name": "Statistics",
       "main": "widget.js",
       "html": "widget.html",
       "size": "medium"
