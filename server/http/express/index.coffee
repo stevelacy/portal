@@ -8,7 +8,6 @@ errorHandler = require 'errorhandler'
 bodyParser = require 'body-parser'
 staticFiles = require 'serve-static'
 session = require 'express-session'
-passport = require 'passport'
 jwt = require 'jwt-simple'
 cors = require 'cors'
 
@@ -39,8 +38,6 @@ app.use session
   cookie:
     maxAge: 31536000000
 
-app.use passport.initialize()
-app.use passport.session()
 
 app.use (err, req, res, next) ->
   log.error err.stack
