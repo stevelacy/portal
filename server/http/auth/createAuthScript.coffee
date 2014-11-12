@@ -1,11 +1,9 @@
 module.exports = (user) ->
-  src = ""
-  if user?
-    src += "window._user = {"
-    src += "_id: '#{user._id}',"
-    src += "name: '#{user.name}',"
-    src += "image: '#{user.image}'"
-    src += "};"
-  else
-    src += "window._user = null;"
-  return src
+  return '' unless user?
+  u =
+    name: user.name
+    email: user.email
+    token: user.token
+    image: user.image
+    online: user.online
+  return u

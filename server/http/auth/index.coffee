@@ -11,9 +11,8 @@ app.get '/logout', (req, res) ->
   delete req.user
   res.redirect '/'
 
-app.get '/auth.js', (req, res) ->
+app.post '/auth', (req, res) ->
   src = createAuthScript req.user
-  res.set 'Content-Type', 'application/javascript'
   res.status(200).send src
 
 app.post '/login', (req, res, next) ->
@@ -28,6 +27,13 @@ app.post '/login', (req, res, next) ->
       log.error req.session.message
       return res.status(401).json status: 'error', message: req.session.message
 
+    u =
+      name: user.name
+      email: user.email
+      token: user.token
+      image: user.image
+      online: user.online
     res.status(200).json
       status: 'success'
       token: user.token
+      user: u
