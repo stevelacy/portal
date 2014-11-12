@@ -1,12 +1,12 @@
 Fission = require 'fission'
 Sync = require 'ampersand-sync'
 
+window._token = window.localStorage.getItem 'token'
 tokenSync = (method, model, options) ->
-  token = window.localStorage.getItem 'token'
-  console.log model, options
-  if token
+
+  if window._token?
     options.headers =
-      'x-access-token': token
+      'x-access-token': window._token
   Sync method, model, options
 
 
@@ -19,6 +19,5 @@ fission.socket = io()
 
 fission.socket.on 'connect', ->
   console.log 'connected'
-
 
 module.exports = fission
