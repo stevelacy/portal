@@ -1,3 +1,4 @@
+request = require 'superagent'
 fission = require './app.coffee'
 {router} = fission
 
@@ -28,5 +29,11 @@ router.route '/plugins/:id',
   el: 'content'
   title: fission.config.title
 
+router.route '/logout',
+  view: ->
+    window.localStorage.setItem 'token', ''
+    request.post "#{fission.config.url}/logout?token=#{window._token}", (err, res) ->
+      return console.log err if err?
+      window.location = '/'
 
 module.exports = router

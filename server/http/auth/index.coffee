@@ -7,9 +7,15 @@ createAuthScript = require './createAuthScript'
 
 User = db.model 'User'
 
-app.get '/logout', (req, res) ->
-  delete req.user
-  res.redirect '/'
+app.post '/logout', (req, res, next) ->
+  User.findOne token: req.query?.token, (err, user) ->
+    return next err if err?
+    return next() unless user?
+    user.set token: null
+    user.save (err, doc) ->
+      return next err if err?
+      delete req.user
+      res.redirect '/'
 
 app.post '/auth', (req, res) ->
   src = createAuthScript req.user
