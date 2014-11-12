@@ -7,7 +7,7 @@ pluginView = require './Plugin.view'
 {div} = fission.React.DOM
 
 module.exports = ->
-  return fission.router.router '/login' unless window._user?
+  return window.location = '/login' unless window._user
   fission.collectionView
     model: Plugin
     itemView: pluginView
