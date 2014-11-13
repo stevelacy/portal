@@ -15,7 +15,8 @@ fission = new Fission
 
 global.fission = fission
 fission.config = window._config
-fission.socket = io()
+fission.socket = io '',
+  query: "token=#{window._token}"
 
 fission.socket.on 'connect', ->
   console.log 'connected'

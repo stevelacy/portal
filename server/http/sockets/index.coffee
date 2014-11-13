@@ -1,5 +1,4 @@
-cookieParser = require 'cookie-parser'
-passportSocketIO = require 'passport.socketio'
+socketioJwt = require 'socketio-jwt'
 sessionStore = require '../express/sessionStore'
 server = require '../httpServer'
 config = require '../../config'
@@ -7,23 +6,17 @@ plugins = require '../plugins'
 io = require('socket.io')(server)
 
 
-io.set 'authorization', passportSocketIO.authorize
-  cookieParser: cookieParser
-  key: config.cookieName
-  secret: config.cookieSecret
-  store: sessionStore
-  fail: (data, message, critical, accept) ->
-    console.log 'io session failed'
-    accept null, false
-  success: (data, accept) ->
-    console.log 'io session success'
-    accept null, true
-
-
+io.use socketioJwt.authorize
+  secret: config.jwt.secret
+  handshake: true
 
 
 io.on 'connection', (socket) ->
   console.log 'connected'
+
+  console.log socket.handshake.decoded_token
+
+
   module.exports.socket = socket
 
   plugins socket
