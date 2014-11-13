@@ -3,7 +3,7 @@ db = require '../../db'
 Item = db.model 'Item'
 
 module.exports = (req, res, next) ->
-  return res.status(403).end() unless req.isAuthenticated()
+  return res.status(403).end() unless req.user?
 
   # return all
   q = Item.find()

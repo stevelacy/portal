@@ -24,7 +24,7 @@ setPlugin = (json, cb) ->
         return cb null, doc
 
 module.exports = (req, res, next) ->
-  return res.status(403).end() unless req.isAuthenticated()
+  return res.status(403).end() unless req.user?
 
   plugins = []
   fs.readdir config.plugins.path, (err, paths) ->

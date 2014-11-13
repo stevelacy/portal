@@ -5,7 +5,7 @@ Item = db.model 'Item'
 canModify = ['name', 'content']
 
 module.exports = (req, res, next) ->
-  return res.status(403).end() unless req.isAuthenticated()
+  return res.status(403).end() unless req.user?
   return next new Error 'Invalid body' unless typeof req.body is 'object'
 
   # dont allow modification of reserved fields

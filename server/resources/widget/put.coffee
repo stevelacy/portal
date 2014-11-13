@@ -3,7 +3,7 @@ db = require '../../db'
 Plugin = db.model 'Plugin'
 
 module.exports = (req, res, next) ->
-  return res.status(403).end() unless req.isAuthenticated()
+  return res.status(403).end() unless req.user?
   return next new Error 'Invalid id parameter' unless isObjectId req.params.id
   return next new Error 'Invalid body' unless typeof req.body is 'object'
 

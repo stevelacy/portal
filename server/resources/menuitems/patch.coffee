@@ -5,7 +5,7 @@ MenuItems = db.model 'MenuItems'
 canModify = ['name', 'content']  ## Whitelist, what the user can modify
 
 module.exports = (req, res, next) ->
-  return res.status(403).end() unless req.isAuthenticated()
+  return res.status(403).end() unless req.user?
 
 
   return res.send(401).json error: 'not modifiable'
