@@ -30,6 +30,10 @@ View = fission.modelView
             className: 'button close light'
             onClick: @delete,
               'X'
+          button
+            className: 'button minimize light'
+            onClick: @minimize,
+              '_'
         console.log @model
         iframe
           src: "#{fission.config.url}/static/#{@model.name}/#{@model.widget.html}"
