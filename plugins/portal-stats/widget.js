@@ -24,9 +24,9 @@ $('.cpu').easyPieChart({
   barColor: 'green',
   lineWidth: 10,
   lineCap: 'butt',
-  trackColor: '#363636',
+  trackColor: '#efefef',
   rotate: 180,
-  scaleColor: false,
+  //scaleColor: false,
   onStep: function(from, to, percent) {
     return $(this.el).find('.value').text(Math.round(percent)).css({
       color: 'green'
@@ -40,9 +40,9 @@ $('.mem').easyPieChart({
   barColor: 'red',
   lineWidth: 10,
   lineCap: 'butt',
-  trackColor: '#363636',
+  trackColor: '#efefef',
   rotate: 180,
-  scaleColor: false,
+  //scaleColor: false,
   onStep: function(from, to, percent) {
     return $(this.el).find('.value').text(Math.round(percent)).css({
       color: 'red'
