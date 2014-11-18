@@ -1,4 +1,3 @@
-passport = require 'passport'
 mongoose = require 'mongoose'
 
 db = require '../db'
@@ -11,7 +10,6 @@ require 'mocha'
 
 # hack passport to work with a fake user
 # provided by the tests
-originalInit = passport.initialize()
 
 hookedInit = (req, res, next) ->
   return originalInit req, res, next unless req.query._user?
@@ -24,7 +22,6 @@ hookedInit = (req, res, next) ->
     req.user = user
     next()
 
-passport.initialize = -> hookedInit
 
 # some utils
 setup =
