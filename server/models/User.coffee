@@ -27,6 +27,9 @@ Model = new Schema
       unique: true
     authorize: noWrite
 
+  username:
+    type: String
+
   password:
     type: String
     required: true
