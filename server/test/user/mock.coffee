@@ -1,9 +1,17 @@
+jwt = require 'jwt-simple'
 setup = require '../setup'
+config = require '../../config'
+
+id = setup.newId()
+
+token = jwt.encode
+  iss: id
+, config.jwt.secret
 
 module.exports =
-  _id: setup.newId()
-  id: 1234567
-  name: 'Mike Adams'
-  token: 'sofake'
-  tokenSecret: 'sosecret'
-  username: 'mikeadams'
+  _id: id
+  name: 'John Smith'
+  token: token
+  email: 'me@my.me'
+  password: 'sosecure'
+  username: 'jsmith'

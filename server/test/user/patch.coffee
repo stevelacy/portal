@@ -18,32 +18,21 @@ describe 'User PATCH', ->
 
   it 'should respond with 403 when not logged in', (done) ->
     request(app)
-      .patch("#{config.apiPrefix}/users/123")
-      .set('Accept', 'application/json')
-      .expect(403, done)
-
-  it 'should respond with 403 when logged in but not owner', (done) ->
-    mod =
-      name: 'James'
-
-    request(app)
-      .patch("#{config.apiPrefix}/users/#{mock._id}")
-      .set('Accept', 'application/json')
-      .query(setup.user.createQuery(setup.newId()))
-      .send(mod)
-      .expect(403, done)
+      .patch "#{config.apiPrefix}/users/123"
+      .set 'Accept', 'application/json'
+      .expect 403, done
 
   it 'should respond with 200 and information when logged in', (done) ->
     mod =
       name: 'Mike'
 
     request(app)
-      .patch("#{config.apiPrefix}/users/#{mock._id}")
-      .set('Accept', 'application/json')
-      .query(setup.user.createQuery(mock._id))
-      .send(mod)
-      .expect('Content-Type', /json/)
-      .expect(200)
+      .patch "#{config.apiPrefix}/users/#{mock._id}"
+      .set 'Accept', 'application/json'
+      .query token: mock.token
+      .send mod
+      .expect 'Content-Type', /json/
+      .expect 200
       .end (err, res) ->
         return done err if err?
         should.exist res.body

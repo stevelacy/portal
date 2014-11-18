@@ -8,9 +8,6 @@ token = jwt.encode
   iss: id
 , config.jwt.secret
 
-
-console.log id, token
-
 module.exports =
   _id: id
   name: 'John Smith'
