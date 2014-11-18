@@ -43,3 +43,6 @@ app.post '/login', (req, res, next) ->
       status: 'success'
       token: user.token
       user: u
+
+
+# TODO: app.post '/reigster', (req, res, next) ->
