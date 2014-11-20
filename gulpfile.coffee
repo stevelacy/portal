@@ -1,4 +1,4 @@
-gulp = require "gulp"
+gulp = require 'gulp'
 
 source     = require 'vinyl-source-stream'
 buffer     = require 'vinyl-buffer'
