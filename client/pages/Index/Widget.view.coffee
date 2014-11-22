@@ -6,23 +6,32 @@ Widget = require '../../models/Widget'
 
 View = fission.modelView
   model: Widget
+  init: ->
+    return minimize: false
   delete: ->
     @model.set widget: activated: false
     @model.save
       success: (data) ->
         @model.destroy()
+  minimize: ->
+    @setState minimize: !@state.minimize
   render: ->
-    iframeSize = =>
+    widgetWidth = =>
       if @model.widget.size == 'small'
         return '25%'
       if @model.widget.size == 'medium'
         return '50%'
       return '100%'
-
+    widgetHeight = =>
+      return 400 unless @state.minimize
+      return 40
 
     return div
       className: 'widget',
-      style: width: iframeSize(),
+      style:
+        width: widgetWidth()
+        height: widgetHeight()
+      ,
         div
           className: 'controls',
           div className: 'name', @model.name
