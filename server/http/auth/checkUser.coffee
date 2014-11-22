@@ -13,7 +13,10 @@ module.exports = (email, password, cb) ->
     user.comparePassword password, (err, match) ->
       return cb err if err?
       return cb null, null unless match
+      date = new Date()
+      expire = date + 345600000
       token = jwt.encode
+        exp: expire
         iss: user._id
       , config.jwt.secret
       user.set token: token
