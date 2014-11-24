@@ -43,7 +43,6 @@ View = fission.modelView
             className: 'button minimize light'
             onClick: @minimize,
               '_'
-        console.log @model
         iframe
           src: "#{fission.config.url}/static/#{@model.name}/#{@model.widget.html}"
           scrolling: 'no'
