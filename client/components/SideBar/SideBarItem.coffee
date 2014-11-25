@@ -13,7 +13,7 @@ View = fission.modelView
       return 'active'
     return a href: @model.page,
       li
-        className: "#{linkClass()} #{@model.status}",
+        className: "#{linkClass()} ",
           @model.name
 
 module.exports = View
