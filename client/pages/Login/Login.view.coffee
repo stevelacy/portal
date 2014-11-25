@@ -32,6 +32,9 @@ module.exports = ->
           window.location = '/'
         else
           @setState status: 'Incorrect email or password'
+          setTimeout =>
+            @setState status: ''
+          , 2000
 
 
     render: ->
