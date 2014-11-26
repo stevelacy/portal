@@ -3,6 +3,7 @@ ModalView = require '../../components/Modal/Modal'
 NavbarView = require '../../components/NavBar/NavBar'
 InfoBarView = require '../../components/InfoBar/InfoBar'
 SideBarView = require '../../components/SideBar/SideBar'
+NotificationsView = require '../../components/Notifications/Notifications'
 SearchWidgets = require '../../components/SearchWidgets/SearchWidgets'
 Widgets = require './Widgets.view'
 
@@ -29,6 +30,7 @@ module.exports = ->
       return div className: 'main index',
         NavbarView
           color: 'light'
+        NotificationsView()
         div className: 'page',
           SideBarView()
           div className: 'content',

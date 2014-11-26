@@ -1,0 +1,25 @@
+@import 'nib'
+@import '../../css/imports/colors'
+.notifications
+  z-index: 9
+  fixed: bottom 10px right 10px
+  width: 250px
+  .notification
+    transition: all .5s
+    background: greyTrans
+    width: 90%
+    padding: 10px
+    margin: 5%
+    color: white
+    opacity: .8
+    .title
+      font-weight: bold
+    &:hover
+      opacity: 1
+    &.alert
+      background: yellow
+    &.success
+      background: green
+    &.error
+      background: red
+
