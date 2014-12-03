@@ -10,14 +10,21 @@ Model = fission.model
 
 itemView = fission.modelView
   model: Model
+  init: ->
+    return opacity: 0.8
   mounted: ->
     setTimeout =>
-      @destroy()
-    , 600000
+      @setState opacity: 0
+      setTimeout =>
+        @destroy()
+      , 1000
+    , 4000
   destroy: ->
     @model.destroy()
   render: ->
-    div className: "notification #{@model.type}",
+    div
+      className: "notification #{@model.type}"
+      style: opacity: @state.opacity,
       div
         className: 'close'
         onClick: @destroy
@@ -29,8 +36,6 @@ itemView = fission.modelView
 View = fission.collectionView
   model: Model
   itemView: itemView
-  init: ->
-    return null
   mounted: ->
     fission.socket.on 'system:notification', (data) =>
       return unless data.message?
