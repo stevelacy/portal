@@ -13,7 +13,7 @@ itemView = fission.modelView
   mounted: ->
     setTimeout =>
       @destroy()
-    , 6000
+    , 600000
   destroy: ->
     @model.destroy()
   render: ->
@@ -44,4 +44,3 @@ View = fission.collectionView
       @items
 
 module.exports = View
-
