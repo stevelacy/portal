@@ -1,16 +1,15 @@
 fission = require "../../app"
 
-{img} = fission.React.DOM
+{img, div} = fission.React.DOM
 
 View = fission.view
-  getDefaultProps: -> size: 20
   render: ->
 
-    pic = img
-      className: 'profile-pic'
-      src: @props.image
-      height: @props.size
-      width: @props.size
+    pic = div
+      style: backgroundImage: "url(#{@props.image})"
+      className: 'profile-pic',
+        div className: 'profile-pic-top'
+        div className: 'profile-pic-bottom'
     @transferPropsTo pic
 
 module.exports = View
