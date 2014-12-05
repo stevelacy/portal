@@ -41,7 +41,7 @@ Model = new Schema
   image:
     type: String
     authorize: noWrite
-    default: "https://si0.twimg.com/sticky/default_profile_images/default_profile_0_normal.png"
+    default: "/img/user.png"
 
 
   online:
