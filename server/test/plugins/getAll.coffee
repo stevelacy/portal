@@ -1,3 +1,4 @@
+setup = require '../setup'
 app = require '../../'
 config = require '../../config'
 db = require '../../db'
@@ -8,8 +9,8 @@ Plugin = db.model 'Plugin'
 request = require 'supertest'
 should = require 'should'
 
-mock = require './mock'
-mockPlug = require './mockPlug'
+mock = setup.user
+mockPlug = setup.plugin
 
 describe 'Plugin GET plural', ->
   beforeEach db.wipe

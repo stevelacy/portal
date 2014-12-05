@@ -9,7 +9,7 @@ request = require 'supertest'
 should = require 'should'
 require 'mocha'
 
-mock = require './mock'
+mock = setup.user
 
 describe 'User GET', ->
   beforeEach db.wipe

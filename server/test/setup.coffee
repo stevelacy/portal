@@ -1,33 +1,29 @@
 mongoose = require 'mongoose'
+jwt = require 'jwt-simple'
 
-db = require '../db'
 config = require '../config'
 
-User = db.model 'User'
+date = new Date()
+createId = String mongoose.Types.ObjectId()
 
-should = require 'should'
-require 'mocha'
-
-# hack passport to work with a fake user
-# provided by the tests
-
-hookedInit = (req, res, next) ->
-  return originalInit req, res, next unless req.query._user?
-  req._passport = instance: passport
-
-  User.findById String(req.query._user), (err, user) ->
-    return next err if err?
-    req._passport.session =
-      user: user
-    req.user = user
-    next()
+token = jwt.encode
+  iss: createId
+  exp: date + 345600000
+, config.jwt.secret
 
 
-# some utils
-setup =
-  newId: -> String mongoose.Types.ObjectId()
-
+module.exports =
   user:
-    createQuery: (id) -> _user: id
+    _id: createId
+    name: 'John Smith'
+    token: token
+    email: 'me@my.me'
+    password: 'sosecure'
+    username: 'jsmith'
 
-module.exports = setup
+  plugin:
+    _id: createId
+    name: 'test-plugin'
+    main: 'test.coffee'
+    widget:
+      html: 'test.html'

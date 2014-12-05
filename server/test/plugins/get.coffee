@@ -10,8 +10,8 @@ request = require 'supertest'
 should = require 'should'
 require 'mocha'
 
-mock = require './mock'
-mockPlug = require './mockPlug'
+mock = setup.user
+mockPlug = setup.plugin
 
 describe 'Plugin GET', ->
   beforeEach db.wipe
