@@ -1,5 +1,4 @@
 socketioJwt = require 'socketio-jwt'
-sessionStore = require '../express/sessionStore'
 server = require '../httpServer'
 config = require '../../config'
 plugins = require '../plugins'
@@ -14,16 +13,37 @@ io.use socketioJwt.authorize
 io.on 'connection', (socket) ->
   console.log 'connected'
 
-  console.log socket.handshake.decoded_token
-
-
   module.exports.socket = socket
 
   plugins socket
 
+
+  socket.emit 'system:notification',
+    title: 'title'
+    message: 'the is a message'
+    type: 'success'
+  setTimeout ->
+    socket.emit 'system:notification',
+      title: 'title'
+      message: 'the is a message'
+      type: 'alert'
+  , 2000
+  setTimeout ->
+    socket.emit 'system:notification',
+      title: 'title'
+      message: 'the is a message'
+  , 3000
+
+  setTimeout ->
+    socket.emit 'system:notification',
+      title: 'title'
+      message: 'the is a message'
+      type: 'error'
+  , 4000
+
+
   socket.on 'test', (data) ->
     console.log 'test worked', data
     socket.emit 'test', test: 'that'
-
 
 module.exports = io

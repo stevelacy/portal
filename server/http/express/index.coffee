@@ -12,7 +12,6 @@ jwt = require 'jwt-simple'
 cors = require 'cors'
 
 config = require '../../config'
-sessionStore = require './sessionStore'
 log = require '../../lib/log'
 
 jwtAuth = require './jwt'
@@ -30,13 +29,6 @@ app.use cookieParser config.cookieSecret
 app.use express.static config.pubdir
 app.set 'jwtTokenSecret', config.jwt.secret
 app.use '/static/', express.static config.plugins.path
-
-app.use session
-  store: sessionStore
-  key: config.cookieName
-  secret: config.cookieSecret
-  cookie:
-    maxAge: 31536000000
 
 
 app.use (err, req, res, next) ->
