@@ -7,6 +7,7 @@ Model = fission.model
     title: 'string'
     message: 'string'
     type: 'string'
+  sync: (method, m, opts) -> return m
 
 itemView = fission.modelView
   model: Model
@@ -33,7 +34,7 @@ itemView = fission.modelView
       div
         className: 'close'
         onClick: @destroy
-        , 'X'
+        , '✕'
       if @model.title?
         div className: 'title', @model.title
       @model.message
