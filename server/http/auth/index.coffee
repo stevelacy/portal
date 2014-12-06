@@ -2,7 +2,7 @@ db = require '../../db'
 app = require '../express'
 log = require '../../lib/log'
 config = require '../../config'
-checkUser = require './checkUser'
+validateUser = require './validateUser'
 createAuthScript = require './createAuthScript'
 
 User = db.model 'User'
@@ -22,27 +22,21 @@ app.post '/auth', (req, res) ->
   res.status(200).send src
 
 app.post '/login', (req, res, next) ->
-  req.body.username = req.body.email
 
-  checkUser req.body.email, req.body.password, (err, user) ->
+  validateUser req.body.email, req.body.password, (err, user) ->
     return res.status(500).json err if err?
 
     unless user?
-      req.session ?= {}
-      req.session.message = 'email or password incorrect'
-      log.error req.session.message
-      return res.status(401).json status: 'error', message: req.session.message
+      msg = 'email or password incorrect'
+      log.error msg
+      return res.status(401).json status: 'error', message: msg
 
-    u =
-      name: user.name
-      email: user.email
-      token: user.token
-      image: user.image
-      online: user.online
+    delete user['password']
+
     res.status(200).json
       status: 'success'
       token: user.token
-      user: u
+      user: user
 
 
 # TODO: app.post '/reigster', (req, res, next) ->
