@@ -31,7 +31,7 @@ module.exports = ->
           window._user = res.body.user
           window.location = '/'
         else
-          @setState status: res.body.error
+          @setState status: res.body.message
           setTimeout =>
             @setState status: ''
           , 2000
