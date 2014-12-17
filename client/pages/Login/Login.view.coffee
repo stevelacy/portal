@@ -31,7 +31,7 @@ module.exports = ->
           window._user = res.body.user
           window.location = '/'
         else
-          @setState status: 'Incorrect email or password'
+          @setState status: res.body.error
           setTimeout =>
             @setState status: ''
           , 2000
