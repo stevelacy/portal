@@ -1,15 +1,15 @@
 mongoose = require 'mongoose'
-jwt = require 'jwt-simple'
+tungsten = require 'tungsten'
 
 config = require '../config'
 
 date = new Date()
 createId = String mongoose.Types.ObjectId()
 
-token = jwt.encode
-  iss: createId
+token = tungsten.encode
+  id: createId
   exp: date + 345600000
-, config.jwt.secret
+, config.token.secret
 
 
 module.exports =

@@ -41,7 +41,7 @@ Model = new Schema
   image:
     type: String
     authorize: noWrite
-    default: "/img/user.png"
+    default: '/img/user.png'
 
 
   online:
@@ -97,7 +97,7 @@ Model.statics.me = (req, cb) ->
   cb null, req.user
 
 Model.statics.byHandle = ({query}, cb) ->
-  return cb new Error "Missing username parameter" unless typeof query.username is 'string' and query.username.length > 0
+  return cb new Error 'Missing username parameter' unless typeof query.username is 'string' and query.username.length > 0
   @findOne {username:query.username}, cb
 
 module.exports = Model

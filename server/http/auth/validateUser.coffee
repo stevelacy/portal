@@ -1,5 +1,5 @@
 mongoose = require 'mongoose'
-jwt = require 'jwt-simple'
+tungsten = require 'tungsten'
 
 config = require '../../config'
 db = require '../../db'
@@ -15,10 +15,10 @@ module.exports = (email, password, cb) ->
       return cb null, null unless match
       date = new Date()
       expire = date + 345600000
-      token = jwt.encode
+      token = tungsten.encode
         exp: expire
-        iss: user._id
-      , config.jwt.secret
+        id: user._id
+      , config.token.secret
       user.set token: token
       user.save (err, doc) ->
         return cb err if err?

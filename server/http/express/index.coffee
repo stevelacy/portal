@@ -8,13 +8,13 @@ errorHandler = require 'errorhandler'
 bodyParser = require 'body-parser'
 staticFiles = require 'serve-static'
 session = require 'express-session'
-jwt = require 'jwt-simple'
+tungsten = require 'tungsten'
 cors = require 'cors'
 
 config = require '../../config'
 log = require '../../lib/log'
 
-jwtAuth = require './jwt'
+tungstenAuth = require './tungsten'
 
 app = express()
 app.disable 'x-powered-by'
@@ -27,7 +27,6 @@ app.use methodOverride()
 app.use bodyParser()
 app.use cookieParser config.cookieSecret
 app.use express.static config.pubdir
-app.set 'jwtTokenSecret', config.jwt.secret
 app.use '/static/', express.static config.plugins.path
 
 
@@ -38,7 +37,7 @@ app.use (err, req, res, next) ->
 app.use cors()
 
 
-app.all '*', [jwtAuth], (req, res, next) ->
+app.all '*', [tungstenAuth], (req, res, next) ->
   log.info route: req.originalUrl, method: req.method
   next()
 

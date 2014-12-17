@@ -6,7 +6,7 @@ io = require('socket.io')(server)
 
 
 io.use socketioJwt.authorize
-  secret: config.jwt.secret
+  secret: config.token.secret
   handshake: true
 
 

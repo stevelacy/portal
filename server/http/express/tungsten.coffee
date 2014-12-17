@@ -1,4 +1,4 @@
-jwt = require 'jwt-simple'
+tungsten = require 'tungsten'
 db = require '../../db'
 config = require '../../config'
 
@@ -10,11 +10,10 @@ module.exports = (req, res, next) ->
   token = if req.query?.token then req.query.token else req.headers['x-access-token']
   return next() unless token?
   try
-    decoded = jwt.decode token, config.jwt.secret
-    console.log decoded
+    decoded = tungsten.decode token, config.token.secret
     if decoded.exp <= Date.now() or decoded.exp == null or decoded.exp == undefined
       return next()
-    User.findById decoded.iss, (err, user) ->
+    User.findById decoded.id, (err, user) ->
       return next() if err?
       req.user = user
       return next()

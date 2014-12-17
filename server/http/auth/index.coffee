@@ -17,11 +17,14 @@ app.post '/logout', (req, res, next) ->
       delete req.user
       res.redirect '/'
 
-app.post '/auth', (req, res) ->
+app.post '/auth', (req, res, next) ->
+  return next() unless req.user?
   src = createAuthScript req.user
   res.status(200).send src
 
 app.post '/login', (req, res, next) ->
+
+  return res.status(401).send error: 'missing parameters' unless req.body?.email? and req.body?.password?
 
   validateUser req.body.email, req.body.password, (err, user) ->
     return res.status(500).json err if err?
@@ -31,12 +34,21 @@ app.post '/login', (req, res, next) ->
       log.error msg
       return res.status(401).json status: 'error', message: msg
 
-    delete user['password']
+    user.password = undefined
 
     res.status(200).json
       status: 'success'
       token: user.token
       user: user
 
+app.post '/register', (req, res, next) ->
+  console.log req.body
+  return res.status(401).send error: 'missing parameters' unless req.body?.email? and req.body?.password?
+  user = new User
+    email: req.body.email
+    password: req.body.password
+    name: req.body.name
+  user.save (err, doc) ->
+    res.send doc
 
 # TODO: app.post '/reigster', (req, res, next) ->
