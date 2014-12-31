@@ -36,6 +36,8 @@ module.exports = ->
             @setState status: ''
           , 2000
 
+    mounted: ->
+      @refs.email.getDOMNode().focus()
 
     render: ->
       div className: 'main login',
@@ -50,6 +52,7 @@ module.exports = ->
               method: 'post'
               onSubmit: @login,
               input
+                ref: 'email'
                 type: 'email'
                 name: 'email'
                 placeholder: 'Email'
