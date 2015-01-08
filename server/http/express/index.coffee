@@ -7,7 +7,6 @@ responseTime = require 'response-time'
 errorHandler = require 'errorhandler'
 bodyParser = require 'body-parser'
 staticFiles = require 'serve-static'
-session = require 'express-session'
 tungsten = require 'tungsten'
 cors = require 'cors'
 
