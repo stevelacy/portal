@@ -40,7 +40,7 @@
     "socketio-jwt": "^2.3.5",
     "superagent": "^0.20.0",
     "toobusy": "^0.2.4",
-    "tungsten": "0.0.2"
+    "tungsten": "0.0.4"
   },
   "devDependencies": {
     "autoprefixer-stylus": "^0.2.0",
