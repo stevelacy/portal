@@ -2,7 +2,7 @@ fission = require '../../app'
 NavbarView = require '../../components/NavBar/NavBar'
 SideBarView = require '../../components/SideBar/SideBar'
 
-{div} = fission.React.DOM
+{div} = fission.DOM
 
 module.exports = ->
   return window.location = '/login' unless window._user

@@ -4,7 +4,7 @@ SideBarView = require '../../components/SideBar/SideBar'
 Plugin = require '../../models/Plugin'
 
 pluginView = require './Plugin.view'
-{div} = fission.React.DOM
+{div} = fission.DOM
 
 module.exports = ->
   return window.location = '/login' unless window._user

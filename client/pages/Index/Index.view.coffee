@@ -7,7 +7,7 @@ NotificationsView = require '../../components/Notifications/Notifications'
 SearchWidgets = require '../../components/SearchWidgets/SearchWidgets'
 Widgets = require './Widgets.view'
 
-{div, button} = fission.React.DOM
+{div, button} = fission.DOM
 
 module.exports = ->
   return window.location = '/login' unless window._user?

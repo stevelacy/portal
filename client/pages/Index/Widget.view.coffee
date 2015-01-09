@@ -2,7 +2,7 @@ fission = require '../../app'
 
 Widget = require '../../models/Widget'
 
-{div, button, iframe} = fission.React.DOM
+{div, button, iframe} = fission.DOM
 
 View = fission.modelView
   model: Widget

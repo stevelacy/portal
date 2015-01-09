@@ -2,7 +2,7 @@ superagent = require 'superagent'
 fission = require '../../app'
 Plugin = require '../../models/Plugin'
 
-{div, a, button} = fission.React.DOM
+{div, a, button} = fission.DOM
 
 View = fission.modelView
   model: Plugin
