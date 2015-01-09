@@ -2,7 +2,7 @@ request = require 'superagent'
 fission = require '../../app'
 NavbarView = require '../../components/NavBar/NavBar'
 
-{div, h1, button, a, img, br, form, input} = fission.React.DOM
+{div, h1, button, a, img, br, form, input} = fission.DOM
 
 module.exports = ->
 
