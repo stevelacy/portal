@@ -4,6 +4,8 @@ Model = new Schema
 
   name:
     type: String
+  token:
+    type: String
   description:
     type: String
   html:
