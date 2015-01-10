@@ -21,13 +21,16 @@ module.exports = (req, res, next) ->
     plugin.set req.body
     if req.body.activated
       tk =
-        id: doc._id
-        name: doc.name
+        id: plugin._id
+        name: plugin.name
       tungsten.encode tk, config.token.secret, (err, token) ->
-        return cb err if err?
-        Plugin.findByIdAndUpdate doc._id, token: token, (err, data) ->
-          cb err, data
-
-    plugin.save (err, plugin) ->
-      return next err if err?
-      res.status(200).json plugin
+        return next err if err?
+        plugin.set token: token
+        plugin.save (err, data) ->
+          return next err if err?
+          res.status(200).json plugin
+    if !req.body.activated
+      plugin.set token: undefined
+      plugin.save (err, data) ->
+        return next err if err?
+        res.status(200).json plugin
