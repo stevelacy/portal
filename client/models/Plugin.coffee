@@ -8,6 +8,7 @@ module.exports = fission.model
     style: 'string'
     description: 'string'
     activated: 'boolean'
+    token: 'string'
     widget:
       activated: 'boolean'
     _id: 'string'
