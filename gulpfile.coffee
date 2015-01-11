@@ -43,7 +43,7 @@ gulp.task 'server', (cb) ->
   idxPath = './public/index.html'
   reloader = reload()
   nodemon
-    script: 'node start.js'
+    script: 'start.js'
     watch: ['./server']
     ext: 'js json coffee'
     ignore: './server/test'

@@ -27,7 +27,6 @@
     "response-time": "^2.2.0",
     "serve-static": "^1.7.1",
     "socket.io": "^1.2.1",
-    "socketio-jwt": "^2.3.5",
     "superagent": "^0.20.0",
     "toobusy": "^0.2.4",
     "tungsten": "0.0.4"
@@ -48,7 +47,8 @@
     "gulp-jade": "^0.7.0",
     "gulp-livereload": "^2.1.0",
     "gulp-minify-html": "^0.1.4",
-    "gulp-nodemon": "^1.0.3",
+    "gulp-nodemon": "^1.0.4",
+    "nodemon": "^1.2.1",
     "gulp-plumber": "^0.6.4",
     "gulp-sourcemaps": "*",
     "gulp-stylus": "^1.3.0",
