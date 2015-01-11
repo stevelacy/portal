@@ -12,7 +12,7 @@ View = fission.view
       className: "navbar #{@props?.color} #{@props?.background}"
 
     div style,
-      a href: '/',
-        div className: 'logo', fission.config.name
+      div className: 'logo',
+        a href: '/', fission.config.name
       div className: 'right'
 module.exports = View
