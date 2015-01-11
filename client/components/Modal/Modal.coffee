@@ -4,14 +4,18 @@ fission = require '../../app'
 
 
 View = fission.view
-  close: ->
+  closeModal: ->
     setTimeout @props.onClose, 10
+  mounted: ->
+    window.addEventListener 'keydown', (e) =>
+      return unless e.keyCode == 27
+      @closeModal()
   render: ->
     return div className: 'modal',
       button
         className: 'button light close'
-        onClick: @close
+        onClick: @closeModal
         , 'X'
-      @props.content()
+      @props.content @props.data
 
 module.exports = View

@@ -18,7 +18,6 @@ View = fission.modelView
     @model.save()
     @setState activated: !@state.activated
 
-    console.log @model
   render: ->
     return div className: 'item',
       div className: 'name',
