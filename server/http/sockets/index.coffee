@@ -1,21 +1,30 @@
-socketioJwt = require 'socketio-jwt'
+tungsten = require 'tungsten'
 server = require '../httpServer'
 config = require '../../config'
 plugins = require '../plugins'
 io = require('socket.io')(server)
 
 
-io.use socketioJwt.authorize
-  secret: config.token.secret
-  handshake: true
+plugio = io.of '/plugins'
 
+plugio.on 'connection', (socket) ->
+  console.log 'plugin of connected'
+
+
+io.set 'authorization', (handshake, cb) ->
+  return unless handshake._query?.token?
+  token = handshake._query.token
+  tungsten.decode token, config.token.secret, (err, data) ->
+    return cb null, false if err?
+    cb null, true
+
+plugins io
 
 io.on 'connection', (socket) ->
   console.log 'connected'
 
   module.exports.socket = socket
 
-  plugins socket
 
 
   socket.emit 'system:notification',
