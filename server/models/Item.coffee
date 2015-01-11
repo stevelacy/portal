@@ -20,8 +20,8 @@ Item = new Schema
   content:
     type: String
 
-Item.set 'toJSON', {getters:true, virtuals:true}
-Item.set 'toObject', {getters:true, virtuals:true}
+Item.set 'toJSON', getters: true, virtuals: true
+Item.set 'toObject', getters: true, virtuals: true
 
 Item.methods.authorize = (req) ->
   perms =

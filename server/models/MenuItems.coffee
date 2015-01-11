@@ -9,7 +9,7 @@ Model = new Schema
   status:
     type: String
 
-Model.set 'toJSON', {getters:true, virtuals:true}
-Model.set 'toObject', {getters:true, virtuals:true}
+Model.set 'toJSON', getters: true, virtuals: true
+Model.set 'toObject', getters: true, virtuals: true
 
 module.exports = Model

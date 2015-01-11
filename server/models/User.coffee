@@ -59,8 +59,8 @@ Model = new Schema
     default: Date.now
     authorize: noWrite
 
-Model.set 'toJSON', {getters:true, virtuals:true}
-Model.set 'toObject', {getters:true, virtuals:true}
+Model.set 'toJSON', getters: true, virtuals: true
+Model.set 'toObject', getters: true, virtuals: true
 
 
 Model.pre 'save', (next) ->
