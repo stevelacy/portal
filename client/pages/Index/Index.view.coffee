@@ -17,10 +17,9 @@ module.exports = ->
         openModal: false
         widgets: true
       return o
-    toggleWidget: ->
+    toggleModal: ->
       stat = @state.openModal
       @setState openModal: !stat
-      console.log stat
       if stat
         #@replaceState @init()
         @setState widgets: false
@@ -37,11 +36,11 @@ module.exports = ->
             InfoBarView()
             if @state.openModal
               ModalView
-                onClose: @toggleWidget
+                onClose: @toggleModal
                 content: SearchWidgets
             button
               className: 'button add widget light'
-              onClick: @toggleWidget,
+              onClick: @toggleModal,
                 'ADD WIDGET'
             if @state.widgets
               Widgets()

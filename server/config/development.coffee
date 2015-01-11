@@ -4,7 +4,7 @@ module.exports =
   database: 'mongodb://localhost:27017/portal'
   name: 'P.O.R.T.A.L'
   title: 'P.O.R.T.A.L'
-  url: 'http://192.168.0.2:5000'
+  url: 'http://127.0.0.1:5000'
   token:
     secret: 'IhoiUHyu6gt5HJHhjhhGfddsESEWsfgHJjhhjFDdsseseRDSTDfgghhjHJljklkjuiuyyUYUtytrRERerererERerererRTGHghj'
   mongo:
