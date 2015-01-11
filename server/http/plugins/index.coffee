@@ -3,7 +3,7 @@ db = require '../../db'
 log = require '../../lib/log'
 Plugin = db.model 'Plugin'
 
-module.exports = (socket) ->
+module.exports = (io) ->
 
   Plugin.find activated: true, (err, plugins) ->
     return log.error err if err?
@@ -12,6 +12,6 @@ module.exports = (socket) ->
         if plugin.main?
           try
             runPlugin = require "#{config.plugins.path}/#{plugin.name}/#{plugin.main}"
-            runPlugin socket, plugin
+            runPlugin io, plugin
           catch e
             log.error e
