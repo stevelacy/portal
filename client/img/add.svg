@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   id="Layer_1"
+   xml:space="preserve"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="add.svg"><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview11"
+     showgrid="false"
+     inkscape:zoom="1.84375"
+     inkscape:cx="306.85552"
+     inkscape:cy="357.30668"
+     inkscape:window-x="0"
+     inkscape:window-y="22"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" /><metadata
+     id="metadata19"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+     id="defs17" /><g
+     id="g3"
+     style="fill:#e6e6e6"><g
+       id="g5"
+       style="fill:#e6e6e6"><g
+         id="g7"
+         style="fill:#e6e6e6"><path
+           d="M 256,48 C 141.1,48 48,141.1 48,256 48,370.9 141.1,464 256,464 370.9,464 464,370.9 464,256 464,141.1 370.9,48 256,48 z m 0,398.7 C 150.9,446.7 65.3,361.2 65.3,256 65.3,150.8 150.9,65.3 256,65.3 c 105.1,0 190.7,85.6 190.7,190.7 0,105.1 -85.6,190.7 -190.7,190.7 z"
+           id="path9"
+           style="fill:#e6e6e6" /></g></g><g
+       id="g11"
+       style="fill:#e6e6e6"><polygon
+         points="247.3,128 247.3,247.9 128,247.9 128,264.7 247.3,264.7 247.3,384 264.1,384 264.1,264.7 384,264.7 384,247.9 264.1,247.9 264.1,128 "
+         id="polygon13"
+         style="fill:#e6e6e6" /></g></g></svg>
