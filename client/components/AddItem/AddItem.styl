@@ -1,0 +1,29 @@
+@require 'nib'
+@require '../../css/mixins/aligns'
+@require '../../css/mixins/fonts'
+@import '../../css/imports/colors'
+
+.additem
+  transition: all .3s
+  margin: 1%
+  display: block
+  float: left
+  position: relative
+  min-width: 250px
+  overflow: hidden
+  height: 400px
+  display: table
+  .wrapper
+    width: 100%
+    vertical-align: middle
+    display: table-cell
+    .plus
+      margin: 0 auto
+      width: 150px
+      height: 150px
+      border-radius: 5px
+      box-shadow: 0 0 2px #cdcdcd
+      background: rgba(255, 255, 255, .9)
+      img
+        width: 100%
+
