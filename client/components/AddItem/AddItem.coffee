@@ -5,7 +5,9 @@ fission = require '../../app'
 
 View = fission.view
   render: ->
-    div className: 'additem',
+    div
+      className: 'additem'
+      onClick: @props.onClick,
       div className: 'wrapper',
         div className: 'plus',
           img src: '/img/add.svg'
