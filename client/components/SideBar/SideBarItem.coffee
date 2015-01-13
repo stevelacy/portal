@@ -3,7 +3,7 @@ fission = require '../../app'
 
 MenuItem = require '../../models/MenuItem'
 
-{div, li, a} = fission.React.DOM
+{div, li, a} = fission.DOM
 
 View = fission.modelView
   model: MenuItem

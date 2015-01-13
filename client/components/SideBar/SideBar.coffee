@@ -2,7 +2,7 @@ fission = require '../../app'
 
 ProfilePicView = require '../../components/ProfilePic/ProfilePic'
 
-{div, button, ul, li} = fission.React.DOM
+{div, button, ul, li} = fission.DOM
 sideBarItems = require './SideBarItems'
 
 View = fission.view

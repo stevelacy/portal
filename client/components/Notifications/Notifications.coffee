@@ -1,6 +1,6 @@
 fission = require '../../app'
 
-{div} = fission.React.DOM
+{div} = fission.DOM
 
 Model = fission.model
   props:

@@ -2,7 +2,7 @@ fission = require '../../app'
 
 Widget = require '../../models/Widget'
 SearchWidget = require './SearchWidget'
-{div, button, a} = fission.React.DOM
+{div, button, a} = fission.DOM
 
 View = fission.collectionView
   itemView: SearchWidget

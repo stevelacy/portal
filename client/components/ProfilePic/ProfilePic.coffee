@@ -1,6 +1,6 @@
 fission = require "../../app"
 
-{img, div} = fission.React.DOM
+{img, div} = fission.DOM
 
 View = fission.view
   render: ->

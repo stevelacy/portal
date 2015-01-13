@@ -2,7 +2,7 @@ fission = require '../../app'
 
 MenuItem = require '../../models/MenuItem'
 MenuItemsView = require './SideBarItem'
-{div, ul} = fission.React.DOM
+{div, ul} = fission.DOM
 
 View = fission.collectionView
   itemView: MenuItemsView
