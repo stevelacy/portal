@@ -22,7 +22,7 @@ sourcemaps = require 'gulp-sourcemaps'
 
 
 nodemon = require 'gulp-nodemon'
-nib = require 'nib'
+axis = require 'axis'
 autoprefixer = require 'autoprefixer-stylus'
 autowatch = require 'gulp-autowatch'
 
@@ -84,13 +84,11 @@ gulp.task 'stylus', ->
     .pipe sourcemaps.init()
     .pipe stylus
       use:[
-        nib()
+        axis()
         autoprefixer cascade: true
       ]
-      sourcemap:
-        inline: true
-    .pipe concat 'app.css'
     .pipe sourcemaps.write()
+    .pipe concat 'app.css'
     .pipe gif gutil.env.production, csso()
     .pipe gulp.dest './public'
     .pipe reload()
