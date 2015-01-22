@@ -19,11 +19,16 @@ View = fission.modelView
     @setState activated: !@state.activated
 
   render: ->
+    buttonClass = =>
+      return 'red' unless !@state.activated
+      return 'blue'
+
     return div className: 'item',
       div className: 'name',
         @model.name
+
       button
-        className: 'button add blue'
+        className: "button add #{buttonClass()}"
         onClick: @toggle,
           if @state.activated
             'REMOVE'
