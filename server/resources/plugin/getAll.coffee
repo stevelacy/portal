@@ -5,23 +5,8 @@ config = require '../../config'
 log = require '../../lib/log'
 db = require '../../db'
 Plugin = db.model 'Plugin'
+setPlugin = require '../../lib/setPlugin'
 
-
-setPlugin = (json, cb) ->
-  Plugin.findOne name: json.name, (err, plugin) ->
-    data = json.portal
-    data.name = json.name
-    data.description = json.description
-    if plugin
-      plugin.set data
-      plugin.save (err, doc) ->
-        return cb err if err?
-        return cb null, doc
-    else
-      plug = new Plugin data
-      plug.save (err, doc) ->
-        return cb err if err?
-        return cb null, doc
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?
