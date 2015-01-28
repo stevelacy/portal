@@ -9,7 +9,7 @@ plugio = io.of '/plugins'
 
 plugio.on 'connection', (socket) ->
   console.log 'plugin of connected'
-
+  plugins socket
 
 io.set 'authorization', (handshake, cb) ->
   return unless handshake._query?.token?
@@ -18,13 +18,11 @@ io.set 'authorization', (handshake, cb) ->
     return cb null, false if err?
     cb null, true
 
-plugins io
 
 io.on 'connection', (socket) ->
   console.log 'connected'
 
   module.exports.socket = socket
-
 
 
   socket.emit 'system:notification',
