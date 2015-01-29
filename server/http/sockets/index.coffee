@@ -11,6 +11,9 @@ plugio.on 'connection', (socket) ->
   console.log 'plugin of connected'
   plugins socket
 
+  socket.on 'system:notification', (data) ->
+    io.emit 'system:notification', data
+
 io.set 'authorization', (handshake, cb) ->
   return unless handshake._query?.token?
   token = handshake._query.token
@@ -24,7 +27,7 @@ io.on 'connection', (socket) ->
 
   module.exports.socket = socket
 
-
+  ###
   socket.emit 'system:notification',
     title: 'title'
     message: 'the is a message'
@@ -47,7 +50,7 @@ io.on 'connection', (socket) ->
       message: 'the is a message'
       type: 'error'
   , 4000
-
+  ###
 
   socket.on 'test', (data) ->
     console.log 'test worked', data
