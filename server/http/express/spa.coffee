@@ -7,7 +7,8 @@ app.get "/config.js", (req, res) ->
   src = "window._config = {"
   src += "  name: '#{config.name}',"
   src += "  title: '#{config.title}',"
-  src += "  url: '#{config.url}'"
+  src += "  url: '#{config.url}',"
+  src += "  socketUrl: '#{config.url}/#{config.plugins.namespace}'"
   src += "};"
 
   res.set "Content-Type", "application/javascript"
