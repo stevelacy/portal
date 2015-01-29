@@ -7,3 +7,4 @@ module.exports =
   apiPrefix: '/v1'
   plugins:
     path: join __dirname, '../../plugins'
+    namespace: 'plugins'
