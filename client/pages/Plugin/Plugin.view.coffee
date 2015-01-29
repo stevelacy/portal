@@ -19,34 +19,31 @@ modalContent = fission.view
           height: 50
       , @props.token
 
-module.exports = ->
-  return window.location = '/login' unless window._user?
-  View = fission.modelView
-    model: Plugin
-    init: ->
-      o =
-        openModal: false
-      return o
-    toggleModal: ->
-      @setState openModal: !@state.openModal
+module.exports = fission.modelView
+  model: Plugin
+  init: ->
+    o =
+      openModal: false
+    return o
+  toggleModal: ->
+    @setState openModal: !@state.openModal
 
-    render: ->
-      return div className: 'main plugin',
-        NavbarView()
-        div className: 'page',
-          if @state.openModal
-            ModalView
-              onClose: @toggleModal
-              content: modalContent
-              data: token: @model.token
-          div className: 'info',
-            div className: 'name', @model.name
-            div className: 'description', @model.description
-            button
-              className: 'token'
-              onClick: @toggleModal
-            , 'SHOW TOKEN'
+  render: ->
+    return div className: 'main plugin',
+      NavbarView()
+      div className: 'page',
+        if @state.openModal
+          ModalView
+            onClose: @toggleModal
+            content: modalContent
+            data: token: @model.token
+        div className: 'info',
+          div className: 'name', @model.name
+          div className: 'description', @model.description
+          button
+            className: 'token'
+            onClick: @toggleModal
+          , 'SHOW TOKEN'
 
-          iframe
-            src: "#{fission.config.url}#{@model.html}"
-  return View
+        iframe
+          src: "#{fission.config.url}#{@model.html}"

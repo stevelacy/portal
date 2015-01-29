@@ -1,4 +1,4 @@
-Fission = require 'fission'
+fission = require 'fission'
 Sync = require 'ampersand-sync'
 
 window._token = window.localStorage.getItem 'token'
@@ -10,8 +10,7 @@ tokenSync = (method, model, options) ->
   Sync method, model, options
 
 
-fission = new Fission
-  sync: tokenSync
+fission.sync = tokenSync
 
 global.fission = fission
 fission.config = window._config

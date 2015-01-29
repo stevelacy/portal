@@ -7,16 +7,14 @@ Widgets = require './Widgets.view'
 
 {div, button} = fission.DOM
 
-module.exports = ->
-  return window.location = '/login' unless window._user?
-  fission.view
-    render: ->
-      return div className: 'main index',
-        NavbarView
-          color: 'light'
-        NotificationsView()
-        div className: 'page',
-          SideBarView()
-          div className: 'content',
-            InfoBarView()
-            Widgets()
+module.exports = fission.view
+  render: ->
+    return div className: 'main index',
+      #NavbarView
+      #  color: 'light'
+      #NotificationsView()
+      div className: 'page',
+        SideBarView()
+        div className: 'content',
+          #InfoBarView()
+          #Widgets()
