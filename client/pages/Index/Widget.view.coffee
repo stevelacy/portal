@@ -18,9 +18,9 @@ View = fission.modelView
   render: ->
     widgetWidth = =>
       if @model.widget.size == 'small'
-        return '25%'
+        return '23%'
       if @model.widget.size == 'medium'
-        return '50%'
+        return '48%'
       return '100%'
     widgetHeight = =>
       return 400 unless @state.minimize

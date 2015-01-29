@@ -4,8 +4,11 @@
   &.index
     .page
       .content
-        width: 80%
         display: inline-block
         text-align: center
         .button.widget.add
           absolute: right 10px top 10px
+
+      @media all and (min-width: 1200px)
+        .content
+          width: 90%
