@@ -8,7 +8,6 @@ io = require('socket.io')(server)
 plugio = io.of '/plugins'
 
 plugio.on 'connection', (socket) ->
-  console.log 'plugin of connected'
   plugins socket
 
   socket.on 'system:notification', (data) ->
@@ -26,31 +25,6 @@ io.on 'connection', (socket) ->
   console.log 'connected'
 
   module.exports.socket = socket
-
-  ###
-  socket.emit 'system:notification',
-    title: 'title'
-    message: 'the is a message'
-    type: 'success'
-  setTimeout ->
-    socket.emit 'system:notification',
-      title: 'title'
-      message: 'the is a message'
-      type: 'alert'
-  , 2000
-  setTimeout ->
-    socket.emit 'system:notification',
-      title: 'title'
-      message: 'the is a message'
-  , 3000
-
-  setTimeout ->
-    socket.emit 'system:notification',
-      title: 'title'
-      message: 'the is a message'
-      type: 'error'
-  , 4000
-  ###
 
   socket.on 'test', (data) ->
     console.log 'test worked', data

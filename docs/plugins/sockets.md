@@ -18,4 +18,13 @@ type:
   default: info
   options: alert | error | warning 
 
+
+// example
+
+socket.emit 'system:notification',
+  title: 'title'
+  message: 'the is a message'
+  type: 'success'
+
+
 ```
