@@ -14,7 +14,6 @@ plugio.on 'connection', (socket) ->
     io.emit 'system:notification', data
 
 io.set 'authorization', (handshake, cb) ->
-  console.log handshake
   return cb null, false unless handshake._query?.token?
   token = handshake._query.token
   tungsten.decode token, config.token.secret, (err, data) ->
