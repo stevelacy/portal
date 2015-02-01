@@ -11,6 +11,7 @@ config = _.merge configDefault, configWithEnv
 
 
 config.logFile = logFile
+config.env = env
 config.port = process.env.PORT or 5000
 config.database = config.database or process.env.MONGO_URL
 config.pubdir = join __dirname, '../../public'
