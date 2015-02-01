@@ -42,13 +42,13 @@ app.post '/login', (req, res, next) ->
       user: user
 
 app.post '/register', (req, res, next) ->
-  console.log req.body
   return res.status(401).send error: 'missing parameters' unless req.body?.email? and req.body?.password?
   user = new User
     email: req.body.email
     password: req.body.password
     name: req.body.name
   user.save (err, doc) ->
+    console.log 'user saved: ', doc
     res.send doc
 
 # TODO: app.post '/reigster', (req, res, next) ->
