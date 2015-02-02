@@ -3,6 +3,7 @@ config = require '../config'
 
 logger = bunyan.createLogger
   name: config.name
+
 if config.env == 'testing'
   logger =
     info: -> return
