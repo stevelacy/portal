@@ -30,7 +30,6 @@ describe 'User GET', ->
         res.body._id.should.equal mock._id
         done()
 
-
   it 'should respond with 403 when not logged in', (done) ->
     request(app)
       .get "#{config.apiPrefix}/users/#{mock._id}"
@@ -40,6 +39,7 @@ describe 'User GET', ->
         return done err if err?
         should(Object.keys(res.body).length).equal 0
         done()
+
   it 'should respond with 200 and information when logged in with username query', (done) ->
     request(app)
       .get "#{config.apiPrefix}/users/#{mock.username}"
