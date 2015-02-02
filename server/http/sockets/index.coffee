@@ -24,8 +24,6 @@ io.set 'authorization', (handshake, cb) ->
 io.on 'connection', (socket) ->
   console.log 'connected'
 
-  module.exports.socket = socket
-
   socket.on 'test', (data) ->
     console.log 'test worked', data
     socket.emit 'test', test: 'that'
