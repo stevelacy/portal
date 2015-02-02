@@ -12,17 +12,10 @@ User = db.model 'User'
 
 user = setup.user
 
-describe 'socket core', ->
-
+describe 'socket auth', ->
   beforeEach db.wipe
   beforeEach (cb) ->
     User.create user, cb
-
-  it 'should expose a socket instance', (done) ->
-    io.should.be.instanceOf socketIo
-    done()
-
-describe 'socket auth', ->
 
   it 'should not accept an unauthorized connection without a token', (done) ->
     client1 = client.connect config.url,
@@ -36,7 +29,7 @@ describe 'socket auth', ->
   it 'should not accept an unauthorized connection with a null token', (done) ->
     client1 = client.connect config.url,
       'force new connection': true
-      query: "token="
+      query: 'token='
 
     client1.on 'error', (err) ->
       err.should.equal 'Not authorized'
@@ -46,7 +39,7 @@ describe 'socket auth', ->
   it 'should not accept an unauthorized connection without a valid token', (done) ->
     client1 = client.connect config.url,
       'force new connection': true
-      query: "token=supdoge"
+      query: 'token=supdoge'
 
     client1.on 'error', (err) ->
       err.should.equal 'Not authorized'
