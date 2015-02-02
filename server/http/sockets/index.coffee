@@ -23,7 +23,6 @@ io.set 'authorization', (handshake, cb) ->
 
 io.on 'connection', (socket) ->
   console.log 'connected'
-
   socket.on 'test', (data) ->
     console.log 'test worked', data
     socket.emit 'test', test: 'that'
