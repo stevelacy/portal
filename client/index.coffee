@@ -6,6 +6,8 @@ window.socket = io '',
 
 window.config =
   url: 'http://localhost:5000'
+  socketUrl: window._config.socketUrl
+
 window.socket.on 'connect', ->
   console.log 'connected'
 
