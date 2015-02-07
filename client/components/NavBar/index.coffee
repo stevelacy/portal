@@ -3,6 +3,7 @@
 {header, h1, img, a, div, span, p, button} = DOM
 
 module.exports = component
+  displayName: 'NavBar'
   render: ->
     @props?.color ?= 'light'
     @props?.background ?= ''

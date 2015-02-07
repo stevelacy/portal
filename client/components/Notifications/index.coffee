@@ -53,5 +53,5 @@ module.exports = collectionView
         type: data.type
 
   render: ->
-    div className: 'notifications',
+    div className: 'notifications component',
       @items

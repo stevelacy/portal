@@ -6,7 +6,7 @@
 module.exports = component
   displayName: 'AddItem'
   render: ->
-    div className: 'additem',
+    div className: 'additem component',
       div className: 'wrapper',
         div
           className: 'plus'

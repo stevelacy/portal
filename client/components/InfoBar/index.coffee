@@ -3,6 +3,7 @@
 {div, h1} = DOM
 
 module.exports = component
+  displayName: 'InfoBar'
   render: ->
-    div className: 'infobar',
+    div className: 'infobar component',
       h1 null, 'INFO'

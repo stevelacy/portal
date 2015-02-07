@@ -7,6 +7,7 @@ sideBarItems = require './SideBarItems'
 
 
 module.exports = component
+  displayName: 'SideBar'
   render: ->
     div className: 'sidebar component',
       div className: 'header',

@@ -9,7 +9,7 @@ module.exports = collectionView
   itemView: SearchWidget
   model: Widget
   render: ->
-    return div className: 'search-widgets',
+    return div className: 'search-widgets component',
       div className: 'title', 'Widgets'
       if !@items[0]
         a

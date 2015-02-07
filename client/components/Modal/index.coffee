@@ -3,6 +3,7 @@
 {div, button} = DOM
 
 module.exports = component
+  displayName: 'Modal'
   closeModal: ->
     setTimeout @props.onClose, 10
   mounted: ->
@@ -10,7 +11,7 @@ module.exports = component
       return unless e.keyCode == 27
       @closeModal()
   render: ->
-    return div className: 'modal',
+    return div className: 'modal component',
       button
         className: 'button light close'
         onClick: @closeModal
