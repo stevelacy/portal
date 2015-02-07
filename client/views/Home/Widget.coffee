@@ -5,6 +5,7 @@ Widget = require '../../models/Widget'
 {div, button, iframe} = DOM
 
 module.exports = modelView
+  displayName: 'Widget'
   model: Widget
   init: ->
     return minimize: false

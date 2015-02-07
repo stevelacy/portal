@@ -4,11 +4,11 @@ SideBar = require '../../components/SideBar'
 {div} = DOM
 
 module.exports = view
+  displayName: 'Application'
   statics:
     willTransitionTo: (transition) ->
       token = window.localStorage.getItem 'token'
       return transition.redirect 'login' unless token?
-  displayName: 'Application'
   render: ->
     div
       className: 'main view application'

@@ -5,6 +5,7 @@ NavbarView = require '../../components/NavBar'
 {div, h1, button, a, img, br, form, input} = DOM
 
 module.exports = view
+  displayName: 'Login'
   init: ->
     o =
       email: ''

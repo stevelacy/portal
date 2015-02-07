@@ -6,6 +6,7 @@ Plugin = require '../../models/Plugin'
 {div, iframe, button, h1, textarea} = DOM
 
 modalContent = view
+  displayName: 'PluginModalContent'
   render: ->
     return div
       style:

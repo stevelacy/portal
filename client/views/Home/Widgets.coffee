@@ -9,6 +9,7 @@ SearchWidgets = require '../../components/SearchWidgets'
 {div, button} = DOM
 
 module.exports = collectionView
+  displayName: 'Widgets'
   itemView: WidgetView
   model: Widget
   init: ->
