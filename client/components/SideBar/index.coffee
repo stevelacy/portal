@@ -1,18 +1,17 @@
-fission = require '../../app'
+{component, DOM} = require 'fission'
 
-ProfilePicView = require '../../components/ProfilePic/ProfilePic'
+{div, button, ul, li} = DOM
+ProfilePicView = require '../../components/ProfilePic'
 
-{div, button, ul, li} = fission.DOM
 sideBarItems = require './SideBarItems'
 
-View = fission.view
+
+module.exports = component
   render: ->
-    div className: 'sidebar',
+    div className: 'sidebar component',
       div className: 'header',
         div className: 'user',
           ProfilePicView
             image: window._user.image
           div className: 'name', window._user.name
       sideBarItems()
-
-module.exports = View

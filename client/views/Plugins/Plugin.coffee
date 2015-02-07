@@ -1,10 +1,11 @@
 superagent = require 'superagent'
-fission = require '../../app'
+{modelView, DOM, Link} = require 'fission'
 Plugin = require '../../models/Plugin'
 
-{div, a, button} = fission.DOM
+{div, a, button} = DOM
 
-View = fission.modelView
+module.exports = modelView
+  displayName: 'Plugin'
   model: Plugin
   activate: ->
     @model.set activated: !@model.activated
@@ -18,12 +19,9 @@ View = fission.modelView
 
 
     div className: 'item',
-      a
-        href: "/plugins/#{@model._id}",
+      Link
+        to: "/plugins/#{@model._id}",
         div className: 'title', @model.name
       Button
 
       div className: 'content', @model.description
-
-
-module.exports = View

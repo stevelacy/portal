@@ -1,6 +1,8 @@
-fission = require '../app'
+{model} = require 'fission'
 
-module.exports = fission.model
+sync = require './sync'
+
+module.exports = model
   props:
     page: 'string'
     name: 'string'
@@ -8,3 +10,4 @@ module.exports = fission.model
     _id: 'string'
   url: '/v1/menuitems'
   idAttribute: '_id'
+  sync: sync

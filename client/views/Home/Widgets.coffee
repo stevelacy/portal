@@ -1,14 +1,14 @@
-fission = require '../../app'
+{collectionView, DOM} = require 'fission'
 
 Widget = require '../../models/Widget'
-WidgetView = require './Widget.view'
-AddItem = require '../../components/AddItem/AddItem'
-ModalView = require '../../components/Modal/Modal'
-SearchWidgets = require '../../components/SearchWidgets/SearchWidgets'
+WidgetView = require './Widget'
+AddItem = require '../../components/AddItem/'
+ModalView = require '../../components/Modal'
+SearchWidgets = require '../../components/SearchWidgets'
 
-{div, button} = fission.DOM
+{div, button} = DOM
 
-View = fission.collectionView
+module.exports = collectionView
   itemView: WidgetView
   model: Widget
   init: ->
@@ -20,7 +20,7 @@ View = fission.collectionView
     if !@state.openModal
       @collection.fetch()
   render: ->
-    return div className: 'widgets',
+    return div className: 'widgets view',
       if @state.openModal
         ModalView
           onClose: @toggleModal
@@ -31,4 +31,3 @@ View = fission.collectionView
 
       AddItem
         onClick: @toggleModal
-module.exports = View

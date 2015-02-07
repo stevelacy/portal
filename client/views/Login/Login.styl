@@ -1,0 +1,47 @@
+@import '../../css/imports/colors'
+@import '../../css/imports/buttons'
+@import '../../css/mixins/aligns'
+@import '../../css/mixins/background'
+@import '../../css/mixins/trans'
+@import '../../css/mixins/fonts'
+
+
+
+.login.view
+  full-background('/img/grass.jpg')
+  .page
+    text-align: center
+    background: transparent
+    .box
+      transition: all .5s
+      center()
+      trans-background(250, 250, 250, .2)
+      margin-top: 15vh
+      padding: 10vh
+      width: 80%
+      max-width: 500px
+      max-width: 800px
+      text-align: center
+      input
+        margin: 5px
+        width: 50%
+        padding: 15px
+      .logo
+        font-trench()
+        width: 90%
+        margin: 5%
+        color: white
+        font-size: 60px
+
+  @media all and (max-width: 900px)
+    .page
+      .box
+        padding: 5vh
+        input
+          width: 90%
+  @media all and (max-width: 500px)
+    .page
+      .box
+        padding: 1vh
+        input
+          width: 95%

@@ -1,10 +1,10 @@
-fission = require '../../app'
+{modelView, DOM} = require 'fission'
 
 Widget = require '../../models/Widget'
 
-{div, button, iframe} = fission.DOM
+{div, button, iframe} = DOM
 
-View = fission.modelView
+module.exports = modelView
   model: Widget
   init: ->
     return minimize: false
@@ -44,7 +44,5 @@ View = fission.modelView
             onClick: @minimize,
               '_'
         iframe
-          src: "#{fission.config.url}/static/#{@model.name}/#{@model.widget.html}"
+          src: "#{window.config.url}/static/#{@model.name}/#{@model.widget.html}"
           scrolling: 'no'
-
-module.exports = View

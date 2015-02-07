@@ -1,14 +1,13 @@
-fission = require '../../app'
+{collectionView, DOM} = require 'fission'
 
 MenuItem = require '../../models/MenuItem'
 MenuItemsView = require './SideBarItem'
-{div, ul} = fission.DOM
+{div, ul} = DOM
 
-View = fission.collectionView
+module.exports = collectionView
+  displayName: 'SideBarItems'
   itemView: MenuItemsView
   model: MenuItem
   render: ->
     return ul null,
       @items
-
-module.exports = View

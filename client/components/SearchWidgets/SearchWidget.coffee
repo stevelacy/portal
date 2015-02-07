@@ -1,11 +1,12 @@
 superagent = require 'superagent'
-fission = require '../../app'
+{modelView, DOM} = require 'fission'
 
 Widget = require '../../models/Widget'
 
-{div, button} = fission.DOM
+{div, button} = DOM
 
-View = fission.modelView
+module.exports = modelView
+  displayName: 'SearchWidget'
   model: Widget
   init: ->
     return activated: false
@@ -34,5 +35,3 @@ View = fission.modelView
             'REMOVE'
           else
             'ADD'
-
-module.exports = View

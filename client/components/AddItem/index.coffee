@@ -1,9 +1,10 @@
-fission = require '../../app'
+{component, DOM} = require 'fission'
 
-{div, h1, img} = fission.DOM
+{div, h1, img} = DOM
 
 
-View = fission.view
+module.exports = component
+  displayName: 'AddItem'
   render: ->
     div className: 'additem',
       div className: 'wrapper',
@@ -11,6 +12,3 @@ View = fission.view
           className: 'plus'
           onClick: @props.onClick,
           img src: '/img/add.svg'
-
-
-module.exports = View

@@ -1,10 +1,11 @@
-fission = require '../../app'
+{collectionView, DOM} = require 'fission'
 
 Widget = require '../../models/Widget'
 SearchWidget = require './SearchWidget'
-{div, button, a} = fission.DOM
+{div, button, a} = DOM
 
-View = fission.collectionView
+module.exports = collectionView
+  displayName: 'SearchWidgets'
   itemView: SearchWidget
   model: Widget
   render: ->
@@ -16,5 +17,3 @@ View = fission.collectionView
           href: '/plugins'
           , 'Please activate a plugin'
       @items
-
-module.exports = View

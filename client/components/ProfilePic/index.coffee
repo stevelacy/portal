@@ -1,8 +1,8 @@
-fission = require "../../app"
+{component, DOM} = require 'fission'
 
-{img, div} = fission.DOM
+{img, div} = DOM
 
-View = fission.view
+module.exports = component
   render: ->
 
     pic = div
@@ -11,5 +11,3 @@ View = fission.view
         div className: 'profile-pic-top'
         div className: 'profile-pic-bottom'
     @transferPropsTo pic
-
-module.exports = View

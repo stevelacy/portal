@@ -1,19 +1,18 @@
+{modelView, DOM, Link} = require 'fission'
 superagent = require 'superagent'
-fission = require '../../app'
 
 MenuItem = require '../../models/MenuItem'
 
-{div, li, a} = fission.DOM
+{div, li, a} = DOM
 
-View = fission.modelView
+module.exports = modelView
+  displayName: 'SideBarItem'
   model: MenuItem
   render: ->
     linkClass = =>
       return '' unless window.location.pathname.indexOf(@model.page) > -1
       return 'active'
-    return a href: @model.page,
+    return Link to: @model.page,
       li
-        className: "#{linkClass()} ",
+        className: linkClass(),
           @model.name
-
-module.exports = View

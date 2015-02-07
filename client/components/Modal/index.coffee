@@ -1,9 +1,8 @@
-fission = require '../../app'
+{component, DOM} = require 'fission'
 
-{div, button} = fission.DOM
+{div, button} = DOM
 
-
-View = fission.view
+module.exports = component
   closeModal: ->
     setTimeout @props.onClose, 10
   mounted: ->
@@ -17,5 +16,3 @@ View = fission.view
         onClick: @closeModal
         , 'X'
       @props.content @props.data
-
-module.exports = View

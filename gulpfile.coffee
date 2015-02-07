@@ -4,6 +4,7 @@ source     = require 'vinyl-source-stream'
 buffer     = require 'vinyl-buffer'
 coffeeify  = require 'coffeeify'
 browserify   = require 'browserify'
+watchify = require 'watchify'
 
 jade = require 'gulp-jade'
 csso = require 'gulp-csso'
@@ -33,33 +34,22 @@ paths =
   img: './client/img/**/*'
   fonts: './client/fonts/**/*'
   coffee: './client/**/*.coffee'
-  coffeeSrc: './client/start.coffee'
+  coffeeSrc: './client/index.coffee'
   stylus: './client/**/*.styl'
   jade: './client/**/*.jade'
 
 gulp.task 'server', (cb) ->
-  # total hack to make nodemon + livereload
-  # work sanely
-  idxPath = './public/index.html'
-  reloader = reload()
-  nodemon
-    script: 'start.js'
+  watcher = nodemon
+    script: './server/index.coffee'
     watch: ['./server']
     ext: 'js json coffee'
     ignore: './server/test'
-  .once 'start', cb
-  .on 'start', ->
-    console.log 'Server has started'
-    setTimeout ->
-      #reloader.write path: idxPath
-      console.log ''
-    , 1000
-  .on 'quit', ->
-    console.log 'Server has quit'
-  .on 'restart', (files) ->
-    console.log 'Server restarted due to:', files
 
-  #return
+  watcher.once 'start', cb
+  watcher.on 'start', ->
+    # TODO: make sure this is actually right
+    setTimeout reload.reload, 750
+  return
 
 # javascript
 gulp.task 'coffee', ->

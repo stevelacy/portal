@@ -1,15 +1,16 @@
-fission = require '../../app'
+{modelView, collectionView, DOM, model} = require 'fission'
 
-{div} = fission.DOM
+{div} = DOM
 
-Model = fission.model
+Model = model
   props:
     title: 'string'
     message: 'string'
     type: 'string'
   sync: (method, m, opts) -> return m
 
-itemView = fission.modelView
+itemView = modelView
+  displayName: 'Notification'
   model: Model
   init: ->
     o =
@@ -39,11 +40,12 @@ itemView = fission.modelView
         div className: 'title', @model.title
       @model.message
 
-View = fission.collectionView
+module.exports = collectionView
+  displayName: 'Notifications'
   model: Model
   itemView: itemView
   mounted: ->
-    fission.socket.on 'system:notification', (data) =>
+    window.socket.on 'system:notification', (data) =>
       return unless data.message?
       @collection.create
         title: data.title
@@ -53,5 +55,3 @@ View = fission.collectionView
   render: ->
     div className: 'notifications',
       @items
-
-module.exports = View
