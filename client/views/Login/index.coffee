@@ -27,8 +27,7 @@ module.exports = view
     request.post '/login', data, (err, res) =>
       if res?.status == 200
         window.localStorage.setItem 'token', res.body.token
-        window._user = res.body.user
-        @transitionTo '/'
+        window.location = '/'
       else
         @setState status: res.body.message
         setTimeout =>
@@ -37,7 +36,6 @@ module.exports = view
 
   mounted: ->
     @refs.email.getDOMNode().focus()
-    console.log @props
 
   render: ->
     div className: 'login view',
