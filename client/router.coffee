@@ -20,10 +20,9 @@ module.exports = router
     path: '/'
     view: Application
     title: 'P.O.R.T.A.L'
+    defaultChild:
+      view: Home
     children:
-      home:
-        view: Home
-        default: true
       plugins:
         path: 'plugins'
         view: Plugins

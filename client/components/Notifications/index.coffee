@@ -42,7 +42,8 @@ itemView = modelView
 
 module.exports = collectionView
   displayName: 'Notifications'
-  model: Model
+  collection:
+    model: Model
   itemView: itemView
   mounted: ->
     window.socket.on 'system:notification', (data) =>

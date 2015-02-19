@@ -13,7 +13,8 @@ module.exports = collectionView
     willTransitionTo: (transition) ->
       token = window.localStorage.getItem 'token'
       return transition.redirect 'login' unless token?
-  model: Plugin
+  collection:
+    model: Plugin
   itemView: pluginView
   render: ->
     div className: 'plugins view',

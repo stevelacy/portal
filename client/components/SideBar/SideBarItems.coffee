@@ -7,7 +7,8 @@ MenuItemsView = require './SideBarItem'
 module.exports = collectionView
   displayName: 'SideBarItems'
   itemView: MenuItemsView
-  model: MenuItem
+  collection:
+    model: MenuItem
   render: ->
     return ul null,
       @items

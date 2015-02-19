@@ -7,7 +7,8 @@ SearchWidget = require './SearchWidget'
 module.exports = collectionView
   displayName: 'SearchWidgets'
   itemView: SearchWidget
-  model: Widget
+  collection:
+    model: Widget
   render: ->
     return div className: 'search-widgets component',
       div className: 'title', 'Widgets'

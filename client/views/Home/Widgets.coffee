@@ -11,7 +11,10 @@ SearchWidgets = require '../../components/SearchWidgets'
 module.exports = collectionView
   displayName: 'Widgets'
   itemView: WidgetView
-  model: Widget
+  collection:
+    model: Widget
+  filter: (i) ->
+    return i.widget.activated
   init: ->
     o =
       openModal: false
@@ -26,9 +29,10 @@ module.exports = collectionView
         ModalView
           onClose: @toggleModal
           content: SearchWidgets
-      @items.map (item) ->
-        if item.props.model?._values?.widget?.activated
-          item
+      # @items.map (item) ->
+      #   if item.props.model?._values?.widget?.activated
+      #     item
+      @items
 
       AddItem
         onClick: @toggleModal
