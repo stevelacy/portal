@@ -34,7 +34,7 @@ paths =
   img: './client/img/**/*'
   fonts: './client/fonts/**/*'
   coffee: './client/**/*.coffee'
-  coffeeSrc: './client/index.coffee'
+  bundle: './client/index.coffee'
   stylus: './client/**/*.styl'
   jade: './client/**/*.jade'
 
@@ -52,21 +52,28 @@ gulp.task 'server', (cb) ->
   return
 
 # javascript
+args =
+  debug: true
+  fullPaths: true
+  cache: {}
+  packageCache: {}
+  extensions: ['.coffee']
+
+bundler = watchify browserify paths.bundle, args
+bundler.transform coffeeify
+
 gulp.task 'coffee', ->
-  bCache = {}
-  b = browserify paths.coffeeSrc,
-    debug: true
-    insertGlobals: true
-    cache: bCache
-    extensions: ['.coffee']
-  b.transform coffeeify
-  b.bundle()
-  .pipe source 'start.js'
-  .pipe buffer()
-  .pipe plumber()
-  .pipe gif gutil.env.production, uglify()
-  .pipe gulp.dest './public'
-  .pipe reload()
+  bundler.bundle()
+    .once 'error', (err) ->
+      console.error err.message
+    .pipe source 'index.js'
+    .pipe buffer()
+    .pipe cache 'js'
+    .pipe sourcemaps.init
+      loadMaps: true
+    .pipe sourcemaps.write '.'
+    .pipe gulp.dest './public'
+    .pipe gif '*.js', reload()
 
 # styles
 gulp.task 'stylus', ->
