@@ -26,7 +26,7 @@ module.exports = modelView
     willTransitionTo: (transition) ->
       return transition.redirect = 'login' unless window.token?
   model: Plugin
-  routeParamKey: 'pluginId'
+  routeIdAttribute: 'pluginId'
   init: ->
     o =
       openModal: false
