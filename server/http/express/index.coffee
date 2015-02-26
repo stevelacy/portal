@@ -23,7 +23,7 @@ app.use errorHandler()
 app.use responseTime()
 app.use compress()
 app.use methodOverride()
-app.use bodyParser()
+app.use bodyParser.json strict: true
 app.use cookieParser config.cookieSecret
 app.use express.static config.pubdir
 app.use '/static/', express.static config.plugins.path
