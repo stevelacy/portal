@@ -40,7 +40,7 @@ module.exports = view
   render: ->
     div className: 'login view',
       NavbarView
-        color: 'transparent'
+        color: 'dark'
       div className: 'page',
         div className: 'box',
 
