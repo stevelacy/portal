@@ -6,7 +6,7 @@ Application = require './views/Application'
 Plugins = require './views/Plugins'
 Plugin = require './views/Plugin'
 Logout = require './lib/Logout'
-Home = require './views/Home'
+Index = require './views/Index'
 
 
 module.exports = router
@@ -24,7 +24,7 @@ module.exports = router
     view: Application
     title: 'P.O.R.T.A.L'
     defaultChild:
-      view: Home
+      view: Index
     children:
       plugins:
         path: 'plugins'

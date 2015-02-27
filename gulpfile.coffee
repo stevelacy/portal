@@ -23,7 +23,6 @@ sourcemaps = require 'gulp-sourcemaps'
 
 
 nodemon = require 'gulp-nodemon'
-axis = require 'axis'
 autoprefixer = require 'autoprefixer-stylus'
 autowatch = require 'gulp-autowatch'
 
@@ -81,7 +80,6 @@ gulp.task 'stylus', ->
     .pipe sourcemaps.init()
     .pipe stylus
       use:[
-        axis()
         autoprefixer cascade: true
       ]
     .pipe sourcemaps.write()
