@@ -1,10 +1,11 @@
 gulp = require 'gulp'
 
-source     = require 'vinyl-source-stream'
-buffer     = require 'vinyl-buffer'
-coffeeify  = require 'coffeeify'
-browserify   = require 'browserify'
+nib = require 'nib'
+source = require 'vinyl-source-stream'
+buffer = require 'vinyl-buffer'
 watchify = require 'watchify'
+coffeeify = require 'coffeeify'
+browserify = require 'browserify'
 
 jade = require 'gulp-jade'
 csso = require 'gulp-csso'
@@ -81,6 +82,7 @@ gulp.task 'stylus', ->
     .pipe stylus
       use:[
         autoprefixer cascade: true
+        nib()
       ]
     .pipe sourcemaps.write()
     .pipe concat 'app.css'
