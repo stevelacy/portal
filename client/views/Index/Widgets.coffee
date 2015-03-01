@@ -29,9 +29,6 @@ module.exports = collectionView
         ModalView
           onClose: @toggleModal
           content: SearchWidgets
-      # @items.map (item) ->
-      #   if item.props.model?._values?.widget?.activated
-      #     item
       @items
 
       AddItem

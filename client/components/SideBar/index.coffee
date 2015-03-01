@@ -13,6 +13,6 @@ module.exports = component
       div className: 'header',
         div className: 'user',
           ProfilePicView
-            image: window._user.image
-          div className: 'name', window._user.name
+            image: window._user?.image
+          div className: 'name', window._user?.name
       sideBarItems()
