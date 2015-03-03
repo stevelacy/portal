@@ -26,6 +26,8 @@ app.post '/login', (req, res, next) ->
 
   return res.status(401).send error: 'missing parameters' unless req.body?.email? and req.body?.password?
 
+  req.body.email = req.body.email.toLowerCase()
+
   validateUser req.body.email, req.body.password, (err, user) ->
     return res.status(500).json err if err?
 
