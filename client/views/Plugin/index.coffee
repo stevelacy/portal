@@ -27,9 +27,7 @@ module.exports = modelView
       return transition.redirect = 'login' unless window.token?
   model: Plugin
   init: ->
-    o =
-      openModal: false
-    return o
+    openModal: false
   toggleModal: ->
     @setState openModal: !@state.openModal
 

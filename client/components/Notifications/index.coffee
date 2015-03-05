@@ -13,9 +13,7 @@ itemView = modelView
   displayName: 'Notification'
   model: Model
   init: ->
-    o =
-      opacity: 0.8
-    return o
+    opacity: 0.8
   mounted: ->
     setTimeout =>
       @destroy()

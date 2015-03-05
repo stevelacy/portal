@@ -7,11 +7,9 @@ NavbarView = require '../../components/NavBar'
 module.exports = view
   displayName: 'Login'
   init: ->
-    o =
-      email: ''
-      password: ''
-      status: ''
-    return o
+    email: ''
+    password: ''
+    status: ''
 
   updateEmail: (e) ->
     @setState email: e.target.value

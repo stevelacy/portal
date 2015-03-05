@@ -16,9 +16,8 @@ module.exports = collectionView
   filter: (i) ->
     return i.widget.activated
   init: ->
-    o =
-      openModal: false
-      widgets: true
+    openModal: false
+    widgets: true
   toggleModal: ->
     @setState openModal: !@state.openModal
     if !@state.openModal
