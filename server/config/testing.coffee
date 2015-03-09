@@ -3,6 +3,7 @@
 module.exports =
   url: 'http://127.0.0.1:5000'
   database: 'mongodb://localhost:27017/portal-test'
+  port: 1234
   mongo:
     url: 'mongodb://127.0.0.1:27017/portal-test'
     host: '127.0.0.1'
