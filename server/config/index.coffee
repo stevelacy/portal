@@ -9,10 +9,9 @@ logFile = join __dirname, "#{env}.log"
 
 config = _.merge configDefault, configWithEnv
 
-
 config.logFile = logFile
 config.env = env
-config.port = process.env.PORT or 5000
+config.port = process.env.PORT or config.port
 config.database = config.database or process.env.MONGO_URL
 config.pubdir = join __dirname, '../../public'
 
