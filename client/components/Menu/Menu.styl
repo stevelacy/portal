@@ -1,0 +1,47 @@
+@require 'nib'
+
+.component.menu
+  fixed: top -3.5% left -13% bottom -3%
+  background: rgba(26, 188, 166, .8)
+  transform: scale(1.25)
+  width: 30vw
+  transition: all .3s
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 8
+  .header
+    absolute: top left right
+    height: 25%
+    background: #262626
+    display: flex
+    justify-content: center
+    align-items: center
+    .user
+      text-align: center
+      width: 80%
+      .image
+        display: inline-block
+      .name
+        width: 100%
+        height: 50px
+        margin-top: 25px
+        text-align: center
+        font-size: 40px
+        color: #fff
+
+  .items
+    .item
+      list-style: none
+      padding: 10px
+      color: #fff
+      font-size: 40px
+      border-bottom: 3px solid rgba(0, 0, 0, 0)
+      transition: all .3s
+      cursor: pointer
+      &:hover
+        border-bottom: 3px solid #fff
+@media all and (max-width: 1000px)
+  .component.menu
+    width: 105vw
+    fixed: top -3% left -4% bottom -3%
