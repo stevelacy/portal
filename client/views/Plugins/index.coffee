@@ -2,7 +2,7 @@
 {div} = DOM
 
 NavbarView = require '../../components/NavBar'
-SideBarView = require '../../components/SideBar'
+# SideBarView = require '../../components/SideBar'
 Plugin = require '../../models/Plugin'
 
 pluginView = require './Plugin'

@@ -11,7 +11,7 @@ module.exports = modelView
     @model.set activated: !@model.activated
     @model.save()
   render: ->
-
+    return null unless @model?
     Button = button
       className: if @model.activated then 'activate' else 'activate blue'
       onClick: @activate,
