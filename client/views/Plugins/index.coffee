@@ -17,8 +17,7 @@ module.exports = collectionView
     model: Plugin
   itemView: pluginView
   render: ->
-    div className: 'plugins view',
-      div className: 'page',
-        div className: 'content',
-          div className: 'items',
-            @items
+    div className: 'plugins view page',
+      div className: 'content',
+        div className: 'items',
+          @items

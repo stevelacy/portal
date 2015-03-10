@@ -13,9 +13,9 @@ module.exports = modelView
   render: ->
     return null unless @model?
     Button = button
-      className: if @model.activated then 'activate' else 'activate blue'
+      className: if @model.activated then 'activate red' else 'activate blue'
       onClick: @activate,
-      if @model.activated then 'UNACTIVATE' else 'ACTIVATE'
+      if @model.activated then 'DEACTIVATE' else 'ACTIVATE'
 
 
     div className: 'item',
@@ -24,4 +24,4 @@ module.exports = modelView
         div className: 'title', @model.name
       Button
 
-      div className: 'content', @model.description
+      div className: 'description', @model.description

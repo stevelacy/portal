@@ -11,6 +11,6 @@ module.exports = view
       return transition.redirect 'login' unless window.token?
   render: ->
     div className: 'index view page',
-        div className: 'content',
-          # InfoBar()
-          Widgets()
+      div className: 'content',
+        # InfoBar()
+        Widgets()
