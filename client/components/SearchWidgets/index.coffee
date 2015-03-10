@@ -10,6 +10,7 @@ module.exports = collectionView
   collection:
     model: Widget
   render: ->
+    return null unless @items?
     return div className: 'search-widgets component',
       div className: 'title', 'Widgets'
       if !@items[0]
