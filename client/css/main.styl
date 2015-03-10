@@ -1,6 +1,6 @@
-@import './imports/reset'
-@import './mixins/fonts'
-@import './imports/colors'
+@require './imports/reset'
+@require './mixins/fonts'
+@require './imports/colors'
 
 
 body
@@ -17,15 +17,13 @@ a
 
 .main
   width: 100vw
-  //margin: 2.5vh 2.5vw 2.5vh 2.5vw
   .page
     background: whiteTrans
-    min-height: 90vh
-    position: relative
+    min-height: 100vh
+    margin: auto
     .content
-      width: 80%
       display: inline-block
+      width: 100%
 
-@import './imports/extras'
-@import './imports/inputs'
-
+@require './imports/extras'
+@require './imports/inputs'
