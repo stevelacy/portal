@@ -24,15 +24,12 @@ module.exports = view
     ,
 
       if @state.animation?
-        Menu close: @toggleMenu
+        Menu onClose: @toggleMenu
       div
         className: "menu-button #{@state.animation}"
         onClick: @toggleMenu
       ,
-        if @state.animation?
-          '×'
-        else
-          '☰'
+        '☰'
 
       div className: 'test'
       NavBar()
