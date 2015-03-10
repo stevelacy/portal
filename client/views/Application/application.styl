@@ -1,5 +1,22 @@
 .view.application
   width: 100%
-  .content
-    width: 80%
-    display: inline-block
+  transition: all .3s
+  &.animated
+    transform: scale(.75)
+
+  .menu-button
+    width: 70px
+    height: 70px
+    position: absolute
+    top: 15px
+    left: 10px
+    z-index: 9
+    font-size: 60px
+    text-align: center
+    color: #555
+    cursor: pointer
+    &.animated
+      color: #fff
+      top: -15%
+      left: -15%
+      transform: scale(1.25)
