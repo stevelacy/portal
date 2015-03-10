@@ -10,13 +10,11 @@ module.exports = component
   render: ->
     div className: 'menu component',
 
-
       div className: 'header',
         div className: 'user',
           div className: 'image',
             ProfilePicView
               image: window._user?.image
           div className: 'name', window._user?.name
-
 
       MenuItems close: @props.close
