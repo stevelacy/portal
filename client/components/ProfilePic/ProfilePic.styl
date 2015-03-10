@@ -1,49 +1,32 @@
+
 .profile-pic.component
-  position relative
-  top: 15px
-  width 50px
-  height 28.87px
-  background-size auto 57.7350px
-  background-position center
-  box-shadow 0 0 2px rgba(0,0,0,1)
-  &:after
-    content ""
-    position absolute
-    top 0.0000px
-    left 0
-    width 50.0000px
-    height 28.8675px
-    z-index 2
-    background inherit
-
-.profile-pic-top,
-.profile-pic-bottom
-  position absolute
-  z-index 1
-  width 35.36px
-  height 35.36px
   overflow hidden
-  transform scaleY(0.5774) rotate(-45deg)
-  background inherit
-  left 7.32px
-  box-shadow 0 0 2px rgba(0,0,0,1)
+  visibility hidden
+  -webkit-transform rotate(120deg)
+  -moz-transform rotate(120deg)
+  -ms-transform rotate(120deg)
+  -o-transform rotate(120deg)
+  transform rotate(120deg)
+  cursor pointer
+  width 150px
+  height 200px
 
-.profile-pic-top:after,
-.profile-pic-bottom:after
-  content ""
-  position absolute
-  width 50.0000px
-  height 28.86751345948129px
-  transform rotate(45deg) scaleY(1.7321) translateY(-14.4338px)
-  transform-origin 0 0
-  background inherit
+  .first
+    overflow hidden
+    width 100%
+    height 100%
+    -webkit-transform rotate(-60deg)
+    -moz-transform rotate(-60deg)
+    -ms-transform rotate(-60deg)
+    -o-transform rotate(-60deg)
+    transform rotate(-60deg)
 
-.profile-pic-top
-  top -17.6777px
-  &:after
-    background-position center top
-
-.profile-pic-bottom
-  bottom -17.6777px
-  &:after
-    background-position center bottom
+  .image
+    width 100%
+    height 100%
+    visibility visible
+    -webkit-transform rotate(-60deg)
+    -moz-transform rotate(-60deg)
+    -ms-transform rotate(-60deg)
+    -o-transform rotate(-60deg)
+    transform rotate(-60deg)
