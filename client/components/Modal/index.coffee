@@ -9,6 +9,7 @@ module.exports = component
   mounted: ->
     window.addEventListener 'keydown', (e) =>
       return unless e.keyCode == 27
+      return unless @isMounted()
       @closeModal()
   render: ->
     return div className: 'modal component',
