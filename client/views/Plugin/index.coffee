@@ -1,11 +1,11 @@
-{view, modelView, DOM} = require 'fission'
+{component, modelView, DOM} = require 'fission'
 ModalView = require '../../components/Modal'
 NavbarView = require '../../components/NavBar'
 Plugin = require '../../models/Plugin'
 
 {div, iframe, button, h1, textarea} = DOM
 
-modalContent = view
+modalContent = component
   displayName: 'PluginModalContent'
   render: ->
     return div
@@ -22,18 +22,21 @@ modalContent = view
 
 module.exports = modelView
   displayName: 'Plugin'
+  routeIdAttribute: 'pluginId'
   statics:
     willTransitionTo: (transition) ->
       return transition.redirect = 'login' unless window.token?
   model: Plugin
+
   init: ->
     openModal: false
+
   toggleModal: ->
     @setState openModal: !@state.openModal
 
   render: ->
+    return null unless @model?.name?
     return div className: 'main plugin',
-      NavbarView()
       div className: 'page',
         if @state.openModal
           ModalView
@@ -48,5 +51,6 @@ module.exports = modelView
             onClick: @toggleModal
           , 'SHOW TOKEN'
 
-        iframe
-          src: "#{window.config.url}#{@model.html}"
+        if @model.html?
+          iframe
+            src: "#{window.config.url}#{@model.html}"
