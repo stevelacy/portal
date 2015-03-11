@@ -18,6 +18,11 @@ module.exports = view
       return @setState animation: null
     @setState animation: 'animated'
 
+  mounted: ->
+    window.addEventListener 'keydown', (e) =>
+      return unless @isMounted() and @state.animation?
+      @toggleMenu()
+
   render: ->
     div
       className: "main view application #{@state.animation}"
