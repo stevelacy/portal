@@ -16,9 +16,6 @@ module.exports = router
   logout:
     path: 'logout'
     view: Logout
-  plugin:
-    path: 'plugins/:pluginId'
-    view: Plugin
   app:
     path: '/'
     view: Application
@@ -29,3 +26,6 @@ module.exports = router
       plugins:
         path: 'plugins'
         view: Plugins
+      plugin:
+        path: 'plugins/:pluginId'
+        view: Plugin
