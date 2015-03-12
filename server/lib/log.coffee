@@ -10,10 +10,23 @@ if config.env == 'testing'
     fatal: -> return
 
 
-logger.middleware = (req, res, next) ->
-  return if res._startAt?
-  req._startAt = process.hrtime()
-  req._startTime = new Date
-  return next()
+logger.middleware =
+  init: ->
+    return (req, res, next) ->
+      return if res._startAt?
+      req._startAt = process.hrtime()
+      req._startTime = new Date
+      next()
+  log: ->
+    return (req, res, next) ->
+      diff = process.hrtime req._startAt
+      ms = diff[0] * 1e3 + diff[1] * 1e-6
+      ms = ms.toFixed(3)
+      res.setHeader 'X-Response-Time', ms
+      logger.info
+        route: req.originalUrl
+        method: req.method
+        delay: ms
+      next()
 
 module.exports = logger
