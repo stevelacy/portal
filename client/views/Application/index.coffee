@@ -20,6 +20,7 @@ module.exports = view
 
   mounted: ->
     window.addEventListener 'keydown', (e) =>
+      return unless e.keyCode is 27
       return unless @isMounted() and @state.animation?
       @toggleMenu()
 
@@ -39,5 +40,4 @@ module.exports = view
       div className: 'test'
       NavBar()
       Notifications()
-      # SideBar()
       ChildView()
