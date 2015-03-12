@@ -2,13 +2,24 @@ tungsten = require 'tungsten'
 server = require '../httpServer'
 config = require '../../config'
 plugins = require '../plugins'
+db = require '../../db'
 io = require('socket.io')(server)
 
+{Plugin} = db.models
 
 plugio = io.of '/plugins'
 
 plugio.on 'connection', (socket) ->
   plugins socket
+  ###
+  return unless socket.handshake.query?.token?
+  tungsten.decode socket.handshake.query.token, config.token.secret, (err, data) ->
+    return if err?
+    Plugin.findById data.id, (err, plugin) ->
+      return socket.disconnect() if err?
+      return socket.disconnect() unless plugin?
+      plugins socket
+  ###
 
   socket.on 'system:notification', (data) ->
     io.emit 'system:notification', data

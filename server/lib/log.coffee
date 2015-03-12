@@ -10,4 +10,10 @@ if config.env == 'testing'
     fatal: -> return
 
 
+logger.middleware = (req, res, next) ->
+  return if res._startAt?
+  req._startAt = process.hrtime()
+  req._startTime = new Date
+  return next()
+
 module.exports = logger

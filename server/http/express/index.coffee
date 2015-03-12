@@ -3,7 +3,6 @@ express = require 'express'
 compress = require 'compression'
 methodOverride = require 'method-override'
 cookieParser = require 'cookie-parser'
-responseTime = require 'response-time'
 errorHandler = require 'errorhandler'
 bodyParser = require 'body-parser'
 staticFiles = require 'serve-static'
@@ -20,7 +19,6 @@ app.disable 'x-powered-by'
 
 
 app.use errorHandler()
-app.use responseTime()
 app.use compress()
 app.use methodOverride()
 app.use bodyParser.json strict: true
@@ -35,9 +33,14 @@ app.use (err, req, res, next) ->
 
 app.use cors()
 
+app.use log.middleware
 
 app.all '*', [tungstenAuth], (req, res, next) ->
-  log.info route: req.originalUrl, method: req.method
+  diff = process.hrtime req._startAt
+  ms = diff[0] * 1e3 + diff[1] * 1e-6
+  ms = ms.toFixed(3)
+  res.setHeader 'X-Response-Time', ms
+  log.info "#{req.method} #{req.originalUrl} - #{ms}ms"
   next()
 
 module.exports = app
