@@ -13,6 +13,6 @@ module.exports = component
             background: "url(#{@props.image})"
             backgroundPosition: 'center center'
             backgroundRepeat: 'no-repeat'
+            backgroundSize: 'cover'
 
-    console.log @props
     @transferPropsTo pic
