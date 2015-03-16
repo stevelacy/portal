@@ -5,7 +5,7 @@ config = require '../../config'
 validateUser = require './validateUser'
 createAuthScript = require './createAuthScript'
 
-User = db.model 'User'
+{User} = db.models
 
 app.post '/logout', (req, res, next) ->
   User.findOne token: req.query?.token, (err, user) ->

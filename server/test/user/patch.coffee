@@ -3,7 +3,7 @@ app = require '../../'
 config = require '../../config'
 db = require '../../db'
 
-User = db.model 'User'
+{User} = db.models
 
 request = require 'supertest'
 should = require 'should'

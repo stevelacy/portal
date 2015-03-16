@@ -2,7 +2,7 @@ tungsten = require 'tungsten'
 db = require '../../db'
 config = require '../../config'
 
-User = db.model 'User'
+{User} = db.models
 
 module.exports = (req, res, next) ->
 

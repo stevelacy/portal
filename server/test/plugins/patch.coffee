@@ -3,8 +3,7 @@ app = require '../../'
 config = require '../../config'
 db = require '../../db'
 
-Plugin = db.model 'Plugin'
-User = db.model 'User'
+{User, Plugin} = db.models
 
 request = require 'supertest'
 should = require 'should'

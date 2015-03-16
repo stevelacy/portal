@@ -8,7 +8,7 @@ app = require '../../'
 
 setup = require '../setup'
 db = require '../../db'
-User = db.model 'User'
+{User} = db.models
 
 user = setup.user
 

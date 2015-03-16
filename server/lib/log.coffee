@@ -27,6 +27,7 @@ logger.middleware =
         route: req.originalUrl
         method: req.method
         delay: ms
+        status: res.statusCode
       next()
 
 module.exports = logger
