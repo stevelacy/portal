@@ -50,7 +50,5 @@ app.post '/register', (req, res, next) ->
     password: req.body.password
     name: req.body.name
   user.save (err, doc) ->
-    console.log 'user saved: ', doc
-    res.send doc
-
-# TODO: app.post '/reigster', (req, res, next) ->
+    log.error err if err?
+    res.status(201).json doc
