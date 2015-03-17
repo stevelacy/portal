@@ -1,4 +1,5 @@
 bunyan = require 'bunyan'
+onFinished = require 'on-finished'
 config = require '../config'
 
 logger = bunyan.createLogger
@@ -10,24 +11,23 @@ if config.env == 'testing'
     fatal: -> return
 
 
-logger.middleware =
-  init: ->
+logger.middleware = ->
     return (req, res, next) ->
-      return if res._startAt?
-      req._startAt = process.hrtime()
-      req._startTime = new Date
-      next()
-  log: ->
-    return (req, res, next) ->
-      diff = process.hrtime req._startAt
-      ms = diff[0] * 1e3 + diff[1] * 1e-6
-      ms = ms.toFixed(3)
-      res.setHeader 'X-Response-Time', ms
-      logger.info
+      initial = process.hrtime()
+      logInfo =
         route: req.originalUrl
         method: req.method
-        delay: ms
-        status: res.statusCode
+
+      onFinished res, (err, req) ->
+        diff = process.hrtime initial
+        ms = diff[0] * 1e3 + diff[1] * 1e-6
+        ms = ms.toFixed 3
+
+        logInfo.delay = ms
+        logInfo.status = req.statusCode
+
+        logger.info logInfo
+
       next()
 
 module.exports = logger

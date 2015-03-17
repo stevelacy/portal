@@ -33,8 +33,7 @@ app.use (err, req, res, next) ->
 
 app.use cors()
 
-app.use log.middleware.init()
-app.use log.middleware.log()
+app.use log.middleware()
 
 app.all '*', [tungstenAuth], (req, res, next) ->
   next()
