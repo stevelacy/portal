@@ -1,8 +1,0 @@
-.widget {
-  height: 100%;
-  overflow: hidden;
-}
-
-.cpu, .mem {
-  display: inline-block;
-}
