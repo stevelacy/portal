@@ -23,6 +23,7 @@ module.exports = collectionView
     if !@state.openModal
       @collection.fetch()
   render: ->
+    return null unless @items?
     return div className: 'widgets view',
       if @state.openModal
         ModalView

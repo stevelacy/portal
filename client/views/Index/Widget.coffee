@@ -8,14 +8,17 @@ module.exports = modelView
   displayName: 'Widget'
   model: Widget
   init: ->
-    return minimize: false
+    minimize: false
+
   delete: ->
     @model.set widget: activated: false
     @model.save
       success: (data) ->
         @model.destroy()
+
   minimize: ->
     @setState minimize: !@state.minimize
+
   render: ->
     widgetWidth = =>
       if @model.widget.size == 'small'

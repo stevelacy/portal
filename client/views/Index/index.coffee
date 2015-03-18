@@ -12,5 +12,4 @@ module.exports = view
   render: ->
     div className: 'index view page',
       div className: 'content',
-        # InfoBar()
         Widgets()
