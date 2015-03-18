@@ -1,7 +1,7 @@
 {join} = require 'path'
 
 module.exports =
-  name: 'Quare'
+  name: 'P.O.R.T.A.L'
   debug: true
   apiPrefix: '/v1'
   plugins:
