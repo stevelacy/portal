@@ -1,3 +1,5 @@
+{React} = require 'fission'
+
 request = require 'superagent'
 router = require './router'
 
@@ -14,3 +16,6 @@ window.socket.on 'connect', ->
 request.post "#{window._config.url}/auth?token=#{window.token}", (err, res) ->
   window._user = res?.body
   router.start document.body
+
+# Widgets = require './views/Index/Widgets'
+# React.renderComponent Widgets(), document.body

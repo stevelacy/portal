@@ -2,7 +2,6 @@
 {div} = DOM
 
 NavbarView = require '../../components/NavBar'
-# SideBarView = require '../../components/SideBar'
 Plugin = require '../../models/Plugin'
 
 pluginView = require './Plugin'
@@ -16,6 +15,7 @@ module.exports = collectionView
   collection:
     model: Plugin
   itemView: pluginView
+
   render: ->
     div className: 'plugins view page',
       div className: 'content',
