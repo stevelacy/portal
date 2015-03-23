@@ -63,6 +63,6 @@
   },
   "scripts": {
     "test": "NODE_ENV=testing mocha --recursive --reporter spec --compilers coffee:coffee-script/register ./server/test",
-    "start": "node start"
+    "start": "node server/index"
   }
 }
