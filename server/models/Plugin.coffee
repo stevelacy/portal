@@ -31,6 +31,9 @@ Model = new Schema
       default: false
     size:
       type: String
+    minimized:
+      type: Boolean
+      default: false
   id:
     type: String
     select: false

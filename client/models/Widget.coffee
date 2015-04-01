@@ -11,6 +11,7 @@ module.exports = model
       activated: 'boolean'
       html: 'string'
       size: 'string'
+      minimized: 'boolean'
     _id: 'string'
   url: '/v1/widgets'
   idAttribute: '_id'

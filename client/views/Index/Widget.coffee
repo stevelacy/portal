@@ -8,7 +8,7 @@ module.exports = modelView
   displayName: 'Widget'
   model: Widget
   init: ->
-    minimize: false
+    minimized: false
 
   delete: ->
     @model.set widget: activated: false
@@ -17,9 +17,16 @@ module.exports = modelView
         @model.destroy()
 
   minimize: ->
-    @setState minimize: !@state.minimize
+    @model.widget.minimized = !@model.widget.minimized
+    @model.save()
+
+    @setState minimized: @model.widget.minimized
+
+  mounted: ->
+    @setState minimized: @model.widget.minimized
 
   render: ->
+    return null unless @model?
     widgetWidth = =>
       if @model.widget.size == 'small'
         return '23%'
@@ -27,7 +34,7 @@ module.exports = modelView
         return '48%'
       return '100%'
     widgetHeight = =>
-      return 400 unless @state.minimize
+      return 400 unless @state.minimized
       return 40
 
     return div
