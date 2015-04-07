@@ -1,12 +1,11 @@
 async = require 'async'
 fs = require 'fs'
 path = require 'path'
-config = require '../../config'
-log = require '../../lib/log'
 db = require '../../db'
-Plugin = db.model 'Plugin'
+log = require '../../lib/log'
+config = require '../../config'
 setPlugin = require '../../lib/setPlugin'
-
+{Plugin} = db.models
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?

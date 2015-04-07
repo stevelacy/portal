@@ -1,5 +1,5 @@
 db = require '../db'
-Plugin = db.model 'Plugin'
+{Plugin} = db.models
 
 module.exports = (json, cb) ->
   Plugin.findOne name: json.name, (err, plugin) ->

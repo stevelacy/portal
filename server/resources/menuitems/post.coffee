@@ -1,17 +1,12 @@
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-MenuItems = db.model 'MenuItems'
+{MenuItems} = db.models
 
 canModify = ['name', 'content']
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?
-
-
   return res.send(401).json error: 'not modifiable'
-
-
-
   return next new Error 'Invalid body' unless typeof req.body is 'object'
 
   # dont allow modification of reserved fields

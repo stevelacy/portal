@@ -1,6 +1,6 @@
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-Item = db.model 'Item'
+{Item} = db.models
 
 canModify = ['name', 'content']
 

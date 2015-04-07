@@ -1,6 +1,6 @@
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-MenuItems = db.model 'MenuItems'
+{MenuItems} = db.models
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?

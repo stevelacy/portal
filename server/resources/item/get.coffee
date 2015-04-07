@@ -1,6 +1,6 @@
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-Item = db.model 'Item'
+{Item} = db.models
 
 module.exports = (req, res, next) ->
   #return res.status(403).end() unless req.user?

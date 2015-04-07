@@ -1,7 +1,7 @@
 config = require '../../config'
 db = require '../../db'
 log = require '../../lib/log'
-Plugin = db.model 'Plugin'
+{Plugin} = db.models
 
 module.exports = (socket) ->
 

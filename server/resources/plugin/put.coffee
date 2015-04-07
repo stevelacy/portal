@@ -2,7 +2,7 @@ tungsten = require 'tungsten'
 config = require '../../config'
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-Plugin = db.model 'Plugin'
+{Plugin} = db.models
 
 canModify = ['name', 'activated']
 

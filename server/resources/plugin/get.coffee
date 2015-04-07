@@ -2,7 +2,7 @@ path = require 'path'
 fs = require 'fs'
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-Plugin = db.model 'Plugin'
+{Plugin} = db.models
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?

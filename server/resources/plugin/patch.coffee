@@ -1,6 +1,6 @@
 isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
-Plugin = db.model 'Plugin'
+{Plugin} = db.models
 
 canModify = ['name', 'content']  ## Whitelist, what the user can modify
 
