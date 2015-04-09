@@ -1,6 +1,6 @@
-{view} = require 'fission'
+{component} = require 'fission'
 
-module.exports = view
+module.exports = component
   statics: willTransitionTo: (tr) ->
     window.localStorage.removeItem 'token'
     tr.redirect 'login'
