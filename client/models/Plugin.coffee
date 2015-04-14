@@ -11,8 +11,10 @@ module.exports = model
     description: 'string'
     activated: 'boolean'
     token: 'string'
-    widget:
-      activated: 'boolean'
+    activated: 'boolean'
+    html: 'string'
+    size: 'string'
+    minimized: 'boolean'
     _id: 'string'
   url: '/v1/plugins'
   idAttribute: '_id'
