@@ -3,7 +3,7 @@ ModalView = require '../../components/Modal'
 NavbarView = require '../../components/NavBar'
 Plugin = require '../../models/Plugin'
 
-{div, iframe, button, h1, textarea} = DOM
+{div, iframe, button, h1, h2, textarea} = DOM
 
 modalContent = component
   displayName: 'PluginModalContent'
@@ -46,11 +46,14 @@ module.exports = modelView
         div className: 'info',
           div className: 'name', @model.name
           div className: 'description', @model.description
-          button
-            className: 'token'
-            onClick: @toggleModal
-          , 'SHOW TOKEN'
+          if not @model.activated
+            h2 className: 'red', 'Please activate the plugin first'
+          else
+            button
+              className: 'token'
+              onClick: @toggleModal
+            , 'SHOW TOKEN'
 
-        if @model.html?
+        if @model.html? and @model.activated
           iframe
             src: "#{window.config.url}#{@model.html}"
