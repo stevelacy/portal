@@ -47,8 +47,9 @@ module.exports = modelView
           className: 'controls',
           Link
             className: 'name'
-            to: 'plugins'
-            pluginId: @model.getId()
+            to: 'plugin'
+            params:
+              pluginId: @model.getId()
             , @model.name
           button
             className: 'button close light'
