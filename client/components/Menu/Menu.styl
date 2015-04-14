@@ -2,8 +2,7 @@
 
 .component.menu
   fixed: top -3.5% left -100% bottom -3%
-  // background: rgba(26, 188, 166, .8)
-  background: rgba(250, 250, 250, .8)
+  background: rgba(250, 250, 250, .9)
   width: 30vw
   display: flex
   justify-content: center
@@ -20,6 +19,7 @@
   .header
     absolute: top left right
     height: 25%
+    min-height: 250px
     background: #262626
     display: flex
     justify-content: center
@@ -48,13 +48,15 @@
 
   .items
     .item
-      list-style: none
+      margin-bottom: 10px
       padding: 10px
       color: #171717
-      font-size: 40px
       border-bottom: 3px solid rgba(0, 0, 0, 0)
-      transition: all .3s
+      font-size: 40px
       cursor: pointer
+      list-style: none
+      text-align: center
+      transition: all .3s
       &:hover
         border-bottom: 3px solid #171717
 @media all and (max-width: 1000px)
