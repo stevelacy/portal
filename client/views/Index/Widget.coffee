@@ -1,4 +1,4 @@
-{modelView, DOM} = require 'fission'
+{modelView, DOM, Link} = require 'fission'
 
 Plugin = require '../../models/Plugin'
 
@@ -45,7 +45,11 @@ module.exports = modelView
       ,
         div
           className: 'controls',
-          div className: 'name', @model.name
+          Link
+            className: 'name'
+            to: 'plugins'
+            pluginId: @model.getId()
+            , @model.name
           button
             className: 'button close light'
             onClick: @delete,
