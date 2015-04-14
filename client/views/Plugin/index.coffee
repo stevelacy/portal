@@ -36,24 +36,25 @@ module.exports = modelView
 
   render: ->
     return null unless @model?.name?
-    return div className: 'main plugin',
-      div className: 'page',
-        if @state.openModal
-          ModalView
-            onClose: @toggleModal
-            content: modalContent
-            data: token: @model.token
-        div className: 'info',
-          div className: 'name', @model.name
-          div className: 'description', @model.description
-          if not @model.activated
-            h2 className: 'red', 'Please activate the plugin first'
-          else
-            button
-              className: 'token'
-              onClick: @toggleModal
-            , 'SHOW TOKEN'
+    return div className: 'plugin view page',
+      if @state.openModal
+        ModalView
+          onClose: @toggleModal
+          content: modalContent
+          data: token: @model.token
 
-        if @model.html? and @model.activated
-          iframe
-            src: "#{window.config.url}#{@model.html}"
+      div className: 'info',
+        div className: 'name', @model.name
+        div className: 'description', @model.description
+        if not @model.activated
+          h2 className: 'red', 'Please activate the plugin first'
+        else
+          button
+            className: 'token'
+            onClick: @toggleModal
+          , 'SHOW TOKEN'
+
+      if @model.config? and @model.activated
+        iframe
+          className: 'iframe'
+          src: "#{window.config.url}#{@model.config}"
