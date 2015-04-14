@@ -58,7 +58,7 @@ module.exports = modelView
           button
             className: 'button minimize light'
             onClick: @minimize,
-              '_'
+              if @model.minimized then '+' else '_'
         iframe
           src: "#{window.config.url}/static/#{@model.name}/#{@model.html}"
           scrolling: 'no'
