@@ -12,22 +12,22 @@ if config.env == 'testing'
 
 
 logger.middleware = ->
-    return (req, res, next) ->
-      initial = process.hrtime()
-      logInfo =
-        route: req.originalUrl
-        method: req.method
+  return (req, res, next) ->
+    initial = process.hrtime()
+    logInfo =
+      route: req.originalUrl
+      method: req.method
 
-      onFinished res, (err, req) ->
-        diff = process.hrtime initial
-        ms = diff[0] * 1e3 + diff[1] * 1e-6
-        ms = ms.toFixed 3
+    onFinished res, (err, req) ->
+      diff = process.hrtime initial
+      ms = diff[0] * 1e3 + diff[1] * 1e-6
+      ms = ms.toFixed 3
 
-        logInfo.delay = ms
-        logInfo.status = req.statusCode
+      logInfo.delay = ms
+      logInfo.status = req.statusCode
 
-        logger.info logInfo
+      logger.info logInfo
 
-      next()
+    next()
 
 module.exports = logger

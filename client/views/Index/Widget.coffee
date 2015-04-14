@@ -1,36 +1,36 @@
 {modelView, DOM} = require 'fission'
 
-Widget = require '../../models/Widget'
+Plugin = require '../../models/Plugin'
 
 {div, button, iframe} = DOM
 
 module.exports = modelView
   displayName: 'Widget'
-  model: Widget
+  model: Plugin
   init: ->
     minimized: false
 
   delete: ->
-    @model.set widget: activated: false
+    @model.set activated: false
     @model.save
       success: (data) ->
         @model.destroy()
 
   minimize: ->
-    @model.widget.minimized = !@model.widget.minimized
+    @model.minimized = !@model.minimized
     @model.save()
 
-    @setState minimized: @model.widget.minimized
+    @setState minimized: @model.minimized
 
   mounted: ->
-    @setState minimized: @model.widget.minimized
+    @setState minimized: @model.minimized
 
   render: ->
     return null unless @model?
     widgetWidth = =>
-      if @model.widget.size == 'small'
+      if @model.size == 'small'
         return '23%'
-      if @model.widget.size == 'medium'
+      if @model.size == 'medium'
         return '48%'
       return '100%'
     widgetHeight = =>
@@ -55,5 +55,5 @@ module.exports = modelView
             onClick: @minimize,
               '_'
         iframe
-          src: "#{window.config.url}/static/#{@model.name}/#{@model.widget.html}"
+          src: "#{window.config.url}/static/#{@model.name}/#{@model.html}"
           scrolling: 'no'

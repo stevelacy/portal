@@ -1,6 +1,6 @@
 {collectionView, DOM} = require 'fission'
 
-Widget = require '../../models/Widget'
+Plugin = require '../../models/Plugin'
 WidgetView = require './Widget'
 AddItem = require '../../components/AddItem/'
 ModalView = require '../../components/Modal'
@@ -12,9 +12,9 @@ module.exports = collectionView
   displayName: 'Widgets'
   itemView: WidgetView
   collection:
-    model: Widget
+    model: Plugin
   filter: (i) ->
-    return i.widget.activated
+    return i.activated
   init: ->
     openModal: false
     widgets: true

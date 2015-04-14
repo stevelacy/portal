@@ -19,24 +19,15 @@ Model = new Schema
   activated:
     type: Boolean
     default: false
-  widget:
-    name:
-      type: String
-    script:
-      type: String
-    html:
-      type: String
-    activated:
-      type: Boolean
-      default: false
-    size:
-      type: String
-    minimized:
-      type: Boolean
-      default: false
   id:
     type: String
     select: false
+  size:
+    type: String
+    default: 'medium'
+  minimized:
+    type: Boolean
+    default: false
 
 Model.set 'toJSON', getters: true, virtuals: true
 Model.set 'toObject', getters: true, virtuals: true

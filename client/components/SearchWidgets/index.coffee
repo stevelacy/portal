@@ -1,6 +1,6 @@
 {collectionView, DOM} = require 'fission'
 
-Widget = require '../../models/Widget'
+Plugin = require '../../models/Plugin'
 SearchWidget = require './SearchWidget'
 {div, button, a} = DOM
 
@@ -8,11 +8,11 @@ module.exports = collectionView
   displayName: 'SearchWidgets'
   itemView: SearchWidget
   collection:
-    model: Widget
+    model: Plugin
   render: ->
     return null unless @items?
     return div className: 'search-widgets component',
-      div className: 'title', 'Widgets'
+      div className: 'title', 'Plugins'
       if !@items[0]
         a
           className: 'title'

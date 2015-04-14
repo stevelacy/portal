@@ -1,21 +1,20 @@
 superagent = require 'superagent'
 {modelView, DOM} = require 'fission'
 
-Widget = require '../../models/Widget'
+Plugin = require '../../models/Plugin'
 
 {div, button} = DOM
 
 module.exports = modelView
-  displayName: 'SearchWidget'
-  model: Widget
+  displayName: 'SearchPlugin'
+  model: Plugin
   init: ->
     return activated: false
   mounted: ->
-    @setState activated: @model.widget.activated
+    @setState activated: @model.activated
   toggle: ->
     @model.set
-      widget:
-        activated: !@state.activated
+      activated: !@state.activated
     @model.save()
     @setState activated: !@state.activated
 

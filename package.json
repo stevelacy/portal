@@ -15,7 +15,7 @@
     "csurf": "^1.8.0",
     "errorhandler": "^1.3.4",
     "express": "^4.12.0",
-    "goosestrap": "0.0.4",
+    "goosestrap": "^1.0.0",
     "gravatar": "^1.1.0",
     "lodash": "^2.4.1",
     "method-override": "^2.3.1",
