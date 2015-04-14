@@ -4,7 +4,7 @@ isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
 {Plugin} = db.models
 
-canModify = ['name', 'activated']
+canModify = ['name', 'activated', 'minimized']
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?
@@ -18,6 +18,7 @@ module.exports = (req, res, next) ->
   q = Plugin.findById req.params.id
   q.exec (err, plugin) ->
     return next err if err?
+    return next() unless plugin?
     plugin.set req.body
     if req.body.activated
       tk =

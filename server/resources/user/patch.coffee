@@ -2,7 +2,7 @@ isObjectId = require '../../lib/isObjectId'
 db = require '../../db'
 {User} = db.models
 
-canModify = ['name', 'description']  ## Whitelist, what the user can modify
+canModify = ['name', 'description']
 
 module.exports = (req, res, next) ->
   return res.status(403).end() unless req.user?
