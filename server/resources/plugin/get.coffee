@@ -24,6 +24,11 @@ module.exports = (req, res, next) ->
     else
       plugin.html = 'ERROR: no template found'
 
+    if plugin.config?
+      plugin.config = "/static/#{plugin.name}/#{plugin.config}"
+    else
+      plugin.html = 'ERROR: no template found'
+
     if plugin.main?
       plugin.main =  "/static/#{plugin.name}/#{plugin.main}"
     else

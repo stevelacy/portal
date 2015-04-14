@@ -10,6 +10,8 @@ Model = new Schema
     type: String
   html:
     type: String
+  config:
+    type: String
   script:
     type: String
   path:

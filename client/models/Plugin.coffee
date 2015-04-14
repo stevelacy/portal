@@ -13,6 +13,7 @@ module.exports = model
     token: 'string'
     activated: 'boolean'
     html: 'string'
+    config: 'string'
     size: 'string'
     minimized: 'boolean'
     _id: 'string'
