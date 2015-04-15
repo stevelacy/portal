@@ -1,6 +1,6 @@
+{join} = require 'path'
 app = require './'
 config = require '../../config'
-{join} = require 'path'
 idxFile = join config.pubdir, 'index.html'
 
 app.get "/config.js", (req, res) ->
@@ -15,8 +15,6 @@ app.get "/config.js", (req, res) ->
   res.status 200
     .send src
 
-
-# serve spa
 app.get '/*', (req, res) ->
   res.sendFile idxFile
 
