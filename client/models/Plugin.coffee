@@ -17,6 +17,6 @@ module.exports = model
     size: 'string'
     minimized: 'boolean'
     _id: 'string'
-  url: '/v1/plugins'
+  urlRoot: '/v1/plugins'
   idAttribute: '_id'
   sync: sync

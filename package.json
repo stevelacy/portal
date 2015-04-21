@@ -35,7 +35,7 @@
     "autoprefixer-stylus": "^0.2.0",
     "browserify": "^9.0.3",
     "coffeeify": "^0.7.0",
-    "fission": "fissionjs/fission#e22b48b09186714ede4472b841d79d2005bd0234",
+    "fission": "fissionjs/fission",
     "gulp": "^3.8.10",
     "gulp-autowatch": "0.0.1",
     "gulp-cached": "^1.0.1",

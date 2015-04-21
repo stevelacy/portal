@@ -8,6 +8,6 @@ module.exports = model
     name: 'string'
     status: 'string'
     _id: 'string'
-  url: '/v1/menuitems'
+  urlRoot: '/v1/menuitems'
   idAttribute: '_id'
   sync: sync

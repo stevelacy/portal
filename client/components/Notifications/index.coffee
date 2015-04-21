@@ -7,6 +7,7 @@ Model = model
     title: 'string'
     message: 'string'
     type: 'string'
+  urlRoot: '/'
   sync: (method, m, opts) -> return m
 
 itemView = modelView
