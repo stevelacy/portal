@@ -3,7 +3,6 @@
   "author": "Steve Lacy",
   "description": "P.O.R.T.A.L",
   "dependencies": {
-    "ampersand-sync": "^3.0.7",
     "async": "^0.9.0",
     "bcrypt": "^0.8.2",
     "body-parser": "^1.12.0",
@@ -32,10 +31,11 @@
     "tungsten": "^0.1.0"
   },
   "devDependencies": {
+    "ampersand-sync": "^3.0.7",
     "autoprefixer-stylus": "^0.2.0",
     "browserify": "^9.0.3",
     "coffeeify": "^0.7.0",
-    "fission": "fissionjs/fission",
+    "fission": "fissionjs/fission#e22b48b09186714ede4472b841d79d2005bd0234",
     "gulp": "^3.8.10",
     "gulp-autowatch": "0.0.1",
     "gulp-cached": "^1.0.1",
