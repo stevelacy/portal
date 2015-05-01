@@ -6,6 +6,7 @@ pluralize = require 'pluralize'
 requireDir = require 'require-dir'
 path = require 'path'
 resDir = path.join __dirname, '../../resources'
+plugins = require '../plugins/http'
 resources = requireDir resDir, recurse: true
 
 registerRoute = (method, route, fns...) ->
@@ -23,5 +24,7 @@ for resource, handlers of resources
       registerRoute method, "#{config.apiPrefix}/#{pluralized}", fn
     else
       registerRoute method, "#{config.apiPrefix}/#{pluralized}/:id", fn
+
+app.post "#{config.apiPrefix}/api/:plugin/:route", plugins
 
 module.exports = app
