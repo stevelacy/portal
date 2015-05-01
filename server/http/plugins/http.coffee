@@ -10,5 +10,6 @@ module.exports = (req, res) ->
     return res.end() unless plugin?
     runPlugin = require "#{config.plugins.path}/#{plugin.name}/#{plugin.main}"
     return res.end() unless typeof runPlugin.http is 'function'
-    runPlugin.http route: req.params.route, body: req.body
-    res.end()
+    runPlugin.http route: req.params.route, body: req.body, (err, data) ->
+      return res.end() if err?
+      res.status(200).send data
