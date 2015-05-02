@@ -60,5 +60,5 @@ module.exports = modelView
             onClick: @minimize,
               if @model.minimized then '+' else '_'
         iframe
-          src: "#{window.config.url}/static/#{@model.name}/#{@model.html}"
+          src: "/static/#{@model.name}/#{@model.html}"
           scrolling: 'no'

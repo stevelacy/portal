@@ -57,4 +57,4 @@ module.exports = modelView
       if @model.config? and @model.activated
         iframe
           className: 'iframe'
-          src: "#{window.config.url}#{@model.config}"
+          src: "#{@model.config}"
