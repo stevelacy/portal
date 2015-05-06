@@ -11,7 +11,6 @@ body
 
 a
   text-decoration: none
-  color: rgba(100, 100, 200, 1)
   &:hover
     color: greyBlack
 
@@ -27,3 +26,31 @@ a
 
 @require './imports/extras'
 @require './imports/inputs'
+
+
+
+::-webkit-scrollbar
+  width: 10px
+
+::-webkit-scrollbar-track
+  background: #efefef
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1)
+
+::-webkit-scrollbar-track:hover
+  background: #dedede
+
+::-webkit-scrollbar-thumb
+  background: #CCC
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2)
+  border-radius: 1px
+
+::-webkit-scrollbar-thumb:hover
+  background: #AAA
+
+::-webkit-scrollbar-thumb:active
+  background: #888
+-webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3)
+
+::selection
+  background:#000
+  color:#fff

@@ -41,7 +41,6 @@ module.exports = modelView
       className: 'widget',
       style:
         width: widgetWidth()
-        height: widgetHeight()
       ,
         div
           className: 'controls',
@@ -59,6 +58,6 @@ module.exports = modelView
             className: 'button minimize light'
             onClick: @minimize,
               if @model.minimized then '+' else '_'
-        iframe
-          src: "/static/#{@model.name}/#{@model.html}"
-          scrolling: 'no'
+        div className: 'frame',
+          iframe
+            src: "/static/#{@model.name}/#{@model.html}"
