@@ -19,6 +19,7 @@ module.exports = view
 
   login: (e) ->
     e.preventDefault()
+    return unless @state.email?.length > 1 and @state.password?.length > 3
     data =
       email: @state.email
       password: @state.password
@@ -38,7 +39,7 @@ module.exports = view
   render: ->
     div className: 'login view',
       NavbarView
-        color: 'dark'
+        color: 'light'
       div className: 'page',
         div className: 'box',
 
