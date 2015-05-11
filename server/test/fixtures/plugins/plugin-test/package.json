@@ -1,10 +1,15 @@
 {
-  "name": "super-plugin",
+  "name": "super-rialu",
+  "version": "0.0.1",
+  "description": "test plugin",
+  "bin": {
+    "rialu": "./bin/rialu"
+  },
   "portal": {
-    "main": "super.js",
-    "html": "super.html",
-    "widget": {
-      "html": "widget.html"
-    }
+    "main": "index.js",
+    "name": "Rialu",
+    "html": "widget/index.html",
+    "config": "widget/config.html",
+    "size": "medium"
   }
 }

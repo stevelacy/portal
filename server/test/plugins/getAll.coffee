@@ -36,4 +36,8 @@ describe 'Plugin GET plural', ->
         should.exist res.body
         Array.isArray(res.body).should.equal true
         res.body.length.should.equal 1
+
+        should.exist res.body[0].main
+        should.exist res.body[0].html
+        should.equal res.body[0].main, 'index.js'
         done()
