@@ -41,7 +41,8 @@ module.exports = modelView
       className: 'widget',
       style:
         width: widgetWidth()
-      ,
+        height: widgetHeight()
+
         div
           className: 'controls',
           Link
