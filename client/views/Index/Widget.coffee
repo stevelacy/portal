@@ -43,22 +43,22 @@ module.exports = modelView
         width: widgetWidth()
         height: widgetHeight()
 
-        div
-          className: 'controls',
-          Link
-            className: 'name'
-            to: 'plugin'
-            params:
-              pluginId: @model.getId()
-            , @model.name
-          button
-            className: 'button close light'
-            onClick: @delete,
-              'X'
-          button
-            className: 'button minimize light'
-            onClick: @minimize,
-              if @model.minimized then '+' else '_'
-        div className: 'frame',
-          iframe
-            src: "/static/#{@model.name}/#{@model.html}"
+      div
+        className: 'controls',
+        Link
+          className: 'name'
+          to: 'plugin'
+          params:
+            pluginId: @model.getId()
+          , @model.name
+        button
+          className: 'button close light'
+          onClick: @delete,
+            'X'
+        button
+          className: 'button minimize light'
+          onClick: @minimize,
+            if @model.minimized then '+' else '_'
+      div className: 'frame',
+        iframe
+          src: "/static/#{@model.name}/#{@model.html}"
