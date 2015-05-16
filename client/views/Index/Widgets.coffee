@@ -19,9 +19,9 @@ module.exports = collectionView
     openModal: false
     widgets: true
   toggleModal: ->
-    @setState openModal: !@state.openModal
-    if !@state.openModal
+    if @state.openModal
       @collection.fetch()
+    @setState openModal: !@state.openModal
   render: ->
     return null unless @items?
     return div className: 'widgets view',
