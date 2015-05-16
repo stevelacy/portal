@@ -14,9 +14,7 @@ mockPlug = setup.plugin
 describe 'Plugin GET plural', ->
   beforeEach db.wipe
   beforeEach (cb) ->
-    User.create mock, (err, user) ->
-      cb err, user if err?
-      Plugin.create mockPlug, cb
+    User.create mock, cb
 
   it 'should respond with 403 when not logged in', (done) ->
     request(app)
@@ -40,4 +38,7 @@ describe 'Plugin GET plural', ->
         should.exist res.body[0].main
         should.exist res.body[0].html
         should.equal res.body[0].main, 'index.js'
-        done()
+        Plugin.find {}, (err, plugins) ->
+          should.exist plugins[0]
+          should.equal plugins[0].main, 'index.js'
+          done()
