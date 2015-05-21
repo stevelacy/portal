@@ -62,7 +62,7 @@ args =
 bundler = watchify browserify paths.bundle, args
 bundler.transform coffeeify
 
-gulp.task 'coffee', ->
+gulp.task 'bundle', ->
   bundler.bundle()
     .once 'error', (err) ->
       console.error err.message
@@ -116,11 +116,11 @@ gulp.task 'fonts', ->
     .pipe gulp.dest './public/fonts'
     .pipe reload()
 
-gulp.task 'watch', ->
+gulp.task 'watch', (cb) ->
+  reload.listen()
+  bundler.on 'update', gulp.parallel 'bundle'
   autowatch gulp, paths
+  cb()
 
-
-gulp.task 'css', ['stylus']
-gulp.task 'js', ['coffee']
-gulp.task 'static', ['jade', 'vendor', 'img', 'fonts']
-gulp.task 'default', ['js', 'css', 'static', 'server', 'watch']
+gulp.task 'static', gulp.parallel 'jade', 'vendor', 'img', 'fonts', 'stylus'
+gulp.task 'default', gulp.series 'bundle', 'static', 'server', 'watch'
