@@ -1,66 +1,61 @@
 bcrypt = require 'bcrypt'
 {Schema} = require 'mongoose'
+formatFields = require 'mongoose-format-fields'
 
-noWrite = ->
-  perms =
-    read: true
-    write: false
-  return perms
-
-hidden = ->
-  perms =
-    read: false
-    write: false
-  return perms
 
 Model = new Schema
+
+  role:
+    grants: ['admin']
+    type: String
+    enum: ['admin', 'user']
+    default: 'admin'
 
   name:
     type: String
     required: true
-    authorize: noWrite
+    grants: ['admin']
 
   email:
     type: String
     required: true
     index:
       unique: true
-    authorize: noWrite
+    grants: ['admin']
 
   username:
     type: String
+    grants: ['admin']
 
   password:
     type: String
     required: true
+    grants: ['admin']
 
   token:
     type: String
-    authorize: noWrite
+    grants: ['admin']
 
   image:
     type: String
-    authorize: noWrite
     default: '/img/user.png'
+    grants: ['admin']
 
 
   online:
     type: Boolean
     default: false
-    authorize: noWrite
+    grants: ['admin']
 
   created:
     type: Date
     default: Date.now
-    authorize: noWrite
+    grants: ['admin']
 
   lastModified:
     type: Date
     default: Date.now
-    authorize: noWrite
-
-Model.set 'toJSON', getters: true, virtuals: true
-Model.set 'toObject', getters: true, virtuals: true
+    grants: ['admin']
 
 
 Model.pre 'save', (next) ->
@@ -78,26 +73,17 @@ Model.methods.comparePassword = (password, cb) ->
     return cb err if err?
     cb null, match
 
+Model.set 'toJSON',
+  getters: true
+  virtuals: true
 
+Model.set 'toObject',
+  getters: true
+  virtuals: true
+Model.set 'strict', true
 
-Model.methods.authorize = (req) ->
-  perms =
-    read: true
-    write: (req.user.username is @username)
-    delete: false
-  return perms
-
-Model.statics.authorize = ->
-  perms =
-    read: true
-    write: false
-  return perms
-
-Model.statics.me = (req, cb) ->
-  cb null, req.user
-
-Model.statics.byHandle = ({query}, cb) ->
-  return cb new Error 'Missing username parameter' unless typeof query.username is 'string' and query.username.length > 0
-  @findOne {username:query.username}, cb
+Model.set 'id_grants', 'public'
+Model.set 'id_output', 'id'
+Model.plugin formatFields
 
 module.exports = Model
