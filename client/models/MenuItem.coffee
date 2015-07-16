@@ -3,11 +3,10 @@
 sync = require './sync'
 
 module.exports = model
+  urlRoot: '/v1/menuitems'
+  sync: sync
   props:
+    id: 'string'
     page: 'string'
     name: 'string'
     status: 'string'
-    _id: 'string'
-  urlRoot: '/v1/menuitems'
-  idAttribute: '_id'
-  sync: sync
