@@ -22,4 +22,4 @@ module.exports = (req, res, next) ->
 
     user.save (err, nuser) ->
       return next err if err?
-      res.status(200).json nuser.toJSON()
+      res.status(200).json nuser.format [req.user.role]

@@ -34,4 +34,4 @@ module.exports = (req, res, next) ->
       plugin.set token: undefined
       plugin.save (err, data) ->
         return next err if err?
-        res.status(200).json plugin
+        res.status(200).json plugin.format [req.user.role]

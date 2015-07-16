@@ -12,4 +12,5 @@ module.exports = (req, res, next) ->
 
   q.exec (err, users) ->
     return next err if err?
-    res.status(200).json users
+    res.status(200).json users.map (user) ->
+      user.format [req.user.role]

@@ -32,4 +32,5 @@ module.exports = (req, res, next) ->
 
     , (err) ->
       return res.status(500).send err if err?
-      return res.status(200).json plugins
+      return res.status(200).json plugins.map (plugin) ->
+        plugin.format [req.user.role]

@@ -34,4 +34,4 @@ module.exports = (req, res, next) ->
     else
       plugin.main = 'ERROR: no script found'
 
-    res.status(200).json plugin
+    res.status(200).json plugin.format [req.user.role]

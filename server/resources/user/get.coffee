@@ -25,4 +25,4 @@ module.exports = (req, res, next) ->
     unless isOwner
       delete user.token
 
-    res.status(200).json user
+    res.status(200).json user.format [req.user.role]
