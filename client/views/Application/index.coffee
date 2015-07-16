@@ -27,14 +27,12 @@ module.exports = view
   render: ->
     div
       className: "main view application #{@state.animation}"
-    ,
 
       if @state.animation?
         Menu onClose: @toggleMenu
       div
         className: "menu-button #{@state.animation}"
         onClick: @toggleMenu
-      ,
         '☰'
 
       div className: 'test'

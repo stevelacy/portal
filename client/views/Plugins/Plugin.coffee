@@ -20,7 +20,9 @@ module.exports = modelView
 
     div className: 'item',
       Link
-        to: "/plugins/#{@model._id}",
+        to: 'plugin'
+        params:
+          pluginId: @model.getId()
         div className: 'title', @model.name
       Button
 

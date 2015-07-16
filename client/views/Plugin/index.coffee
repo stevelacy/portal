@@ -36,7 +36,7 @@ module.exports = modelView
 
   render: ->
     return null unless @model?.name?
-    return div className: 'plugin view page',
+    div className: 'plugin view page',
       if @state.openModal
         ModalView
           onClose: @toggleModal
@@ -52,7 +52,7 @@ module.exports = modelView
           button
             className: 'token'
             onClick: @toggleModal
-          , 'SHOW TOKEN'
+            'SHOW TOKEN'
 
       if @model.config? and @model.activated
         iframe

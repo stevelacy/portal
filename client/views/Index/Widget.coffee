@@ -37,7 +37,7 @@ module.exports = modelView
       return 400 unless @state.minimized
       return 40
 
-    return div
+    div
       className: 'widget',
       style:
         width: widgetWidth()
@@ -50,11 +50,11 @@ module.exports = modelView
           to: 'plugin'
           params:
             pluginId: @model.getId()
-          , @model.name
+          @model.name
         button
           className: 'button close light'
-          onClick: @delete,
-            'X'
+          onClick: @delete
+          'X'
         button
           className: 'button minimize light'
           onClick: @minimize,
