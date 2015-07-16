@@ -19,7 +19,7 @@
     "lodash": "^2.4.2",
     "method-override": "^2.3.3",
     "mongoose": "^4.0.4",
-    "node-gyp": "rvagg/pangyp",
+    "mongoose-format-fields": "contra/mongoose-format-fields#patch-1",
     "on-finished": "^2.3.0",
     "optimist": "^0.6.1",
     "pluralize": "^1.1.2",
