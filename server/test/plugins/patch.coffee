@@ -40,6 +40,6 @@ describe 'Plugin PATCH', ->
         return done err if err?
         should.exist res.body
         res.body.should.be.type 'object'
-        res.body._id.should.equal mockPlug._id
+        res.body.id.should.equal mockPlug._id
         res.body.name.should.equal 'newplug'
         done()

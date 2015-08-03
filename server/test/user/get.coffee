@@ -27,7 +27,7 @@ describe 'User GET', ->
         return done err if err?
         should.exist res.body
         res.body.should.be.type 'object'
-        res.body._id.should.equal mock._id
+        res.body.id.should.equal mock._id
         done()
 
   it 'should respond with 403 when not logged in', (done) ->
@@ -51,7 +51,7 @@ describe 'User GET', ->
         return done err if err?
         should.exist res.body
         res.body.should.be.type 'object'
-        res.body._id.should.equal mock._id
+        res.body.id.should.equal mock._id
         done()
 
   it 'should respond with 403 and when not logged in with username query', (done) ->

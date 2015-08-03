@@ -20,6 +20,7 @@ module.exports =
     email: 'me@my.me'
     password: 'sosecure'
     username: 'jsmith'
+    role: 'admin'
 
   plugin:
     _id: createId

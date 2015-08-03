@@ -37,6 +37,6 @@ describe 'User PATCH', ->
         return done err if err?
         should.exist res.body
         res.body.should.be.type 'object'
-        res.body._id.should.equal mock._id
+        res.body.id.should.equal mock._id
         res.body.name.should.equal 'Mike'
         done()

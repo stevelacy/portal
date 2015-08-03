@@ -34,6 +34,6 @@ describe 'User GET plural', ->
         should.exist res.body
         Array.isArray(res.body).should.equal true
         res.body.length.should.equal 1
-        res.body[0]._id.should.equal mock._id
+        res.body[0].id.should.equal mock._id
         should.not.exist res.body[0].token, 'should not show user token'
         done()
