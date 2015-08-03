@@ -19,8 +19,6 @@ module.exports = (req, res, next) ->
     return next err if err?
     return res.status(404).end() unless user?
 
-    user = user.toJSON()
-
     # security
     unless isOwner
       delete user.token
