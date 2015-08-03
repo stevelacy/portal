@@ -41,7 +41,6 @@ Model = new Schema
     default: '/img/user.png'
     grants: ['admin']
 
-
   online:
     type: Boolean
     default: false
@@ -57,7 +56,6 @@ Model = new Schema
     default: Date.now
     grants: ['admin']
 
-
 Model.pre 'save', (next) ->
   return next() unless @.isModified 'password'
   bcrypt.genSalt 10, (err, salt) =>
@@ -66,7 +64,6 @@ Model.pre 'save', (next) ->
       return next err if err?
       @password = hash
       next()
-
 
 Model.methods.comparePassword = (password, cb) ->
   bcrypt.compare password, @password, (err, match) ->

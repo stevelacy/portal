@@ -10,7 +10,6 @@ if config.env == 'testing'
     info: -> return
     fatal: -> return
 
-
 logger.middleware = ->
   return (req, res, next) ->
     initial = process.hrtime()
