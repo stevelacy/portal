@@ -19,5 +19,5 @@ module.exports = component
       button
         className: 'button light close'
         onClick: @closeModal
-        , 'X'
+        'X'
       @props.content @props.data
