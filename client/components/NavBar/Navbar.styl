@@ -3,11 +3,13 @@
 @require '../../css/mixins/fonts'
 @require '../../css/imports/colors'
 
-.navbar.component
+.navbar-component
   position relative
   height 100px
   width 100%
   padding: 25px
+  background: #fff
+  color: #171717
   .logo
     font-trench()
     text-align left
@@ -16,24 +18,11 @@
     width 200px
   a:hover
     text-decoration none
-
-  &.light
-    background: whiteTrans
-    .logo
-      color black
-  &.transparent
-    background: transparent
-    .logo
-      color white
-
   &.dark
-    background: greyLight
-    .logo
-      color white
-  &.bg-dark
-    background rgba(50, 50, 50, .2)
-    box-shadow 0 0 5px rgba(50, 50, 50, .2)
-    color white
+    background: #000
+    border-bottom: 2px solid blue
+  &.dark, &.dark a
+    color: #fff
 
   .right
     absolute right 10px top 10px

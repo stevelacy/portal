@@ -39,11 +39,11 @@ module.exports = view
   render: ->
     div className: 'login view',
       NavbarView
-        color: 'light'
+        color: 'dark'
       div className: 'page',
         div className: 'box',
 
-          div className: 'logo white', 'Login'
+          # div className: 'logo white', 'Login'
           form
             method: 'post'
             onSubmit: @login,

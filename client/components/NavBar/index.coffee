@@ -1,15 +1,13 @@
-{component, DOM, Link} = require 'fission'
+{component, DOM, Link, classes} = require 'fission'
 
 {header, h1, img, a, div, span, p, button} = DOM
 
 module.exports = component
   displayName: 'NavBar'
   render: ->
-    @props?.color ?= 'light'
-    @props?.background ?= ''
 
     style =
-      className: "navbar component #{@props?.color} #{@props?.background}"
+      className: classes 'navbar-component', @props.color
 
     div style,
       div className: 'logo',

@@ -7,29 +7,29 @@
 
 .login.view
   position: relative
-  height: 100vh
+  min-height: 100vh
+  background: #000 url('/img/dot.png')
   .page
-    position: relative
     text-align: center
     .box
       center()
-      trans-background(250, 250, 250, .2)
+      trans-background(10, 10, 10, .8)
       width: 80%
       max-width: 500px
       max-width: 800px
       padding: 10vh
       margin-top: 15vh
-      text-align: center
       transition: all .5s
       input
+        text-align: center
         width: 50%
         margin: 5px
         padding: 15px
+        color: white
       .logo
         font-trench()
         width: 90%
         margin: 5%
-        color: black
         font-size: 60px
       .status
         height: 15px
@@ -44,6 +44,7 @@
   @media all and (max-width: 500px)
     .page
       .box
-        padding: 1vh
+        padding: 2vh
+        width: 95%
         input
           width: 95%
